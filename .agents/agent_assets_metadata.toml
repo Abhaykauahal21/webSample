@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "8ia3ojboqDfTJ7XFJItgT"
+uri = "file://artifacts/orisa-agency/public/projects/project1.png"
+type = "image"
+title = "dark abstract digital brand identity"
+
+[[generated]]
+id = "MeF7X9fznNriuurxaMxM-"
+uri = "file://artifacts/orisa-agency/public/projects/project2.png"
+type = "image"
+title = "luxury ecommerce platform interface"
+
+[[generated]]
+id = "M6O8KIA4BBpZrRC4feVnN"
+uri = "file://artifacts/orisa-agency/public/projects/project3.png"
+type = "image"
+title = "fintech platform data visualization"
+
+[[generated]]
+id = "ByqEEikxKTO9ap3l87XaT"
+uri = "file://artifacts/orisa-agency/public/projects/project4.png"
+type = "image"
+title = "media campaign visual system"

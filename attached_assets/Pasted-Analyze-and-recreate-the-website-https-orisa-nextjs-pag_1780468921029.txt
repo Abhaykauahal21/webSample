@@ -1,0 +1,89 @@
+Analyze and recreate the website:
+
+https://orisa-nextjs.pages.dev/index-2
+
+I want a pixel-perfect recreation of this website's design system, layout structure, animations, interactions, scrolling behavior, section flow, typography hierarchy, spacing system, and premium user experience.
+
+IMPORTANT:
+
+* Do not copy copyrighted images, logos, brand names, or content.
+* Generate original content while preserving the same premium design language and user experience.
+* Build everything from scratch with clean, production-ready code.
+
+Tech Stack:
+
+* Next.js 15 (App Router)
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* GSAP
+* Lenis Smooth Scroll
+* React Icons
+* Shadcn UI
+
+Requirements:
+
+1. Create the exact page structure and visual hierarchy.
+2. Match all spacing, paddings, margins, and section transitions.
+3. Recreate all hover effects and micro-interactions.
+4. Implement premium scroll-triggered animations.
+5. Add smooth parallax effects.
+6. Use reusable components and clean architecture.
+7. Fully responsive across mobile, tablet, laptop, and 4K displays.
+8. SEO optimized.
+9. Lighthouse score above 90.
+10. Dark luxury theme with premium aesthetics.
+
+Sections:
+
+* Transparent Navbar
+* Hero Section
+* Services Section
+* About Section
+* Portfolio/Projects
+* Statistics Section
+* Process Timeline
+* Testimonials
+* Contact Section
+* Premium Footer
+
+Animations:
+
+* GSAP ScrollTrigger
+* Stagger reveal animations
+* Image scale effects
+* Text reveal animations
+* Parallax scrolling
+* Mouse-following glow effect
+* Floating background elements
+* Smooth page transitions
+* Premium loading screen
+
+UI Requirements:
+
+* Glassmorphism cards
+* Premium gradients
+* Luxury typography
+* Large bold headlines
+* High-end agency aesthetic
+* Consistent 8px spacing system
+
+Code Requirements:
+
+* Create all components separately
+* Use Server Components where possible
+* Create reusable animation hooks
+* Create reusable UI components
+* Follow enterprise-level folder structure
+
+Deliver:
+
+1. Complete project structure
+2. All components
+3. Tailwind configuration
+4. Animation code
+5. Responsive implementation
+6. SEO metadata
+7. Deployment instructions
+
+Output complete source code file by file.
