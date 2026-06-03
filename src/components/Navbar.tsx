@@ -28,7 +28,7 @@ export function Navbar() {
               alt="ClariSolve TECH Logo" 
               className="h-8 w-auto object-contain"
             />
-            <span className="text-white font-bold text-lg tracking-tight">ClariSolve <span className="text-white/60 font-medium">TECH</span></span>
+            <span className="text-white font-bold text-sm sm:text-lg tracking-tight">ClariSolve <span className="text-white/60 font-medium">TECH</span></span>
           </Link>
 
           {/* Desktop Nav */}
@@ -51,10 +51,10 @@ export function Navbar() {
             <button className="p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-search">
               <Search size={18} />
             </button>
-            <button className="p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-theme">
+            <button className="hidden sm:flex p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-theme">
               <Sun size={18} />
             </button>
-            <button className="p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-grid">
+            <button className="hidden sm:flex p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-grid">
               <Grid2x2 size={18} />
             </button>
             <button
@@ -75,7 +75,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed inset-x-0 top-14 z-40 bg-[#111111] border-b border-white/10 md:hidden"
+            className="fixed inset-x-0 top-14 z-40 bg-[#111111]/95 backdrop-blur-lg border-b border-white/10 md:hidden"
           >
             <div className="flex flex-col py-4 px-6">
               {navLinks.map((link) => (
@@ -83,7 +83,7 @@ export function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="py-3 text-white/80 hover:text-white border-b border-white/5 text-sm flex items-center justify-between"
+                  className="py-4 text-white/80 hover:text-white border-b border-white/5 text-base flex items-center justify-between"
                 >
                   {link.name}
                   <ChevronDown size={14} className="opacity-50" />

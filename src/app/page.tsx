@@ -7,6 +7,7 @@ import { ServicesShowcase } from "@/components/ServicesShowcase";
 import { PartnersSection } from "@/components/PartnersSection";
 import { SelectedWork } from "@/components/SelectedWork";
 import { FounderSection } from "@/components/FounderSection";
+import { Process } from "@/components/Process";
 import { TestimonialShowcase } from "@/components/TestimonialShowcase";
 import { NetworkShowcase } from "@/components/NetworkShowcase";
 import { Footer } from "@/components/Footer";
@@ -38,6 +39,7 @@ export default function Home() {
       <PartnersSection />
       <FounderSection />
       <SelectedWork />
+      <Process />
       <TestimonialShowcase />
       <NetworkShowcase />
       <Footer />
