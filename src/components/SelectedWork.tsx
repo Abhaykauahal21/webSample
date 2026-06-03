@@ -5,94 +5,83 @@ import { useRef } from "react";
 
 const projects = [
   {
-    id: "noirform",
-    title: "Noirform",
-    category: "CREATIVE",
-    description: "Brand art direction & visual identity",
-    image: "https://images.unsplash.com/photo-1554047310-99742f364024?q=80&w=2000&auto=format&fit=crop",
+    id: "timely-group",
+    title: "Timely Group",
+    category: "CORPORATE WEBSITE",
+    description:
+      "Premium industrial and abrasives manufacturing company website with modern branding and global presence.",
+    image: "/timely.png",
+    url: "https://timelygroup.vercel.app/",
     align: "left",
   },
   {
-    id: "nebula",
-    title: "Nebula",
-    category: "UI DESIGN",
-    description: "UI/UX & product design for digital platforms",
-    image: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2000&auto=format&fit=crop",
+    id: "kavyaboss",
+    title: "KavyaBoss",
+    category: "NUTRITION E-COMMERCE",
+    description:
+      "Modern nutrition and wellness e-commerce platform designed to deliver a seamless shopping experience for health-conscious customers.",
+    image: "/kavyaboss.png",
+    url: "https://kavyaboss.vercel.app/",
     align: "right",
   },
   {
-    id: "nexora",
-    title: "Nexora",
-    category: "CAMPAIGNS",
-    description: "Campaigns & focused content",
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2000&auto=format&fit=crop",
+    id: "digital-agency",
+    title: "Digital Agency",
+    category: "CREATIVE DIGITAL AGENCY",
+    description:
+      "A modern digital agency website focused on brand strategy, web experiences, UI/UX design, and high-converting marketing solutions.",
+    image: "/digitalagency.png",
+    url: "https://abhaywebagency.vercel.app/",
     align: "left",
-  },
-  {
-    id: "veltrix",
-    title: "Veltrix",
-    category: "WEB DEVELOPMENT",
-    description: "High-performance website development",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2000&auto=format&fit=crop",
-    align: "right",
-  },
-  {
-    id: "solace",
-    title: "Solace",
-    category: "CREATIVE",
-    description: "Visual storytelling & brand experience",
-    image: "https://images.unsplash.com/photo-1493612276216-ee3925520721?q=80&w=2000&auto=format&fit=crop",
-    align: "left",
-  },
-  {
-    id: "ardent",
-    title: "Ardent",
-    category: "CREATIVE",
-    description: "Visual storytelling & brand experience",
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2000&auto=format&fit=crop",
-    align: "right",
   },
 ];
 
 function ProjectCard({ project, index, scrollYProgress }: { project: typeof projects[0], index: number, scrollYProgress: MotionValue<number> }) {
   const isRight = project.align === "right";
   
-  // Card-level parallax (movement of the entire card)
-  const y = useTransform(scrollYProgress, [index * 0.15, (index + 1) * 0.15], [100, -100]);
-  const opacity = useTransform(scrollYProgress, [index * 0.15 - 0.1, index * 0.15, (index + 1) * 0.15, (index + 1) * 0.15 + 0.1], [0, 1, 1, 0]);
+  const rangeStart = index * 0.2;
+  const rangeEnd = (index + 1) * 0.2;
 
-  // Image-level parallax (movement of the image inside its container)
-  const imageY = useTransform(scrollYProgress, [index * 0.15 - 0.2, (index + 1) * 0.15 + 0.2], ["-15%", "15%"]);
+  const y = useTransform(scrollYProgress, [rangeStart, rangeEnd], [20, -20]);
+  const imageY = useTransform(scrollYProgress, [rangeStart - 0.1, rangeEnd + 0.1], ["-8%", "8%"]);
 
   return (
     <motion.div
-      style={{ y, opacity }}
+      style={{ y, opacity: 1 }}
       className={`relative w-full flex ${isRight ? "justify-end" : "justify-start"} mb-32 md:mb-64 px-4 md:px-20`}
     >
-      <div className={`w-full max-w-[550px] group cursor-pointer`}>
-        {/* Title Bar */}
-        <div className="flex items-center justify-between bg-[#1A1A1A] rounded-t-2xl px-6 py-4 border-b border-white/5">
-          <h3 className="text-xl font-bold text-white tracking-tight">{project.title}</h3>
-          <span className="text-white/40 text-xl">+</span>
-        </div>
-
-        {/* Image Container */}
-        <div className="relative aspect-[4/5] overflow-hidden rounded-b-2xl">
+      <div className={`w-full max-w-[900px] flex flex-col md:flex-row items-center gap-8 md:gap-12 ${isRight ? "md:flex-row-reverse" : ""}`}>
+        {/* Image */}
+        <div className="w-full md:w-1/2 relative aspect-[4/5] overflow-hidden rounded-2xl">
           <motion.img
             src={project.image}
             alt={project.title}
-            style={{ y: imageY, scale: 1.2 }}
+            style={{ y: imageY }}
             className="absolute inset-0 w-full h-full object-cover"
           />
-          
-          {/* Text Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 z-10">
-            <span className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase mb-3 border border-white/20 w-max px-3 py-1 rounded-full backdrop-blur-md">
-              {project.category}
-            </span>
-            <p className="text-2xl font-medium text-white leading-tight max-w-[280px]">
-              {project.description}
-            </p>
+        </div>
+
+        {/* Text Content */}
+        <div className="w-full md:w-1/2">
+          <span className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase border border-white/20 px-3 py-1 rounded-full">
+            {project.category}
+          </span>
+          <h3 className="text-3xl md:text-4xl font-bold text-white mt-6 leading-tight">
+            {project.title}
+          </h3>
+          <p className="text-base md:text-lg text-white/60 mt-4 leading-relaxed">
+            {project.description}
+          </p>
+          <div className="flex items-center gap-3 mt-8">
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 rounded-full bg-white/10 text-white font-medium hover:bg-white hover:text-black transition-all duration-500 text-sm border border-white/5 inline-block"
+            >
+              View Project
+            </a>
+            <span className="text-white/30 text-xl">+</span>
           </div>
         </div>
       </div>
@@ -108,7 +97,7 @@ export function SelectedWork() {
   });
 
   return (
-    <section ref={containerRef} className="bg-[#0C0C0C] py-20 relative overflow-hidden">
+    <section id="work" ref={containerRef} className="bg-[#0C0C0C] py-20 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8">
         <div className="bg-[#141414] rounded-[40px] py-24 md:py-32 relative overflow-hidden">
           {/* Sticky Background Symbol */}

@@ -22,8 +22,8 @@ function Sparkle({ className = "" }: { className?: string }) {
 
 const socialLinks = [
   { label: "Twitter", href: "#" },
-  { label: "Facebook", href: "#" },
-  { label: "Instagram", href: "#" },
+  { label: "Facebook", href: "https://www.facebook.com/ClariSolveTech" },
+  { label: "Instagram", href: "https://www.instagram.com/ClariSolve_Tech" },
   { label: "Dribbble", href: "#" },
 ];
 
