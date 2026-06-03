@@ -1,1 +1,6 @@
-{"/_not-found/page":"/_not-found","/page":"/","/partners/page":"/partners"}
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/page": "/",
+  "/partners/page": "/partners"
+}
