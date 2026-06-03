@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { ServicesBar } from "@/components/ServicesBar";
 import { Services } from "@/components/Services";
 import { About } from "@/components/About";
 import { Portfolio } from "@/components/Portfolio";
@@ -11,9 +12,10 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-background min-h-screen text-foreground selection:bg-primary selection:text-primary-foreground">
+    <main className="bg-[#111111] min-h-screen text-foreground selection:bg-primary selection:text-primary-foreground">
       <Navbar />
       <Hero />
+      <ServicesBar />
       <Services />
       <About />
       <Portfolio />

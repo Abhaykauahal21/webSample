@@ -1,92 +1,90 @@
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { Link } from "wouter";
+import { useState } from "react";
+import { Search, Sun, Grid2x2, ChevronDown, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const navLinks = [
+  { name: "Home", href: "#" },
+  { name: "Page", href: "#" },
+  { name: "Portfolio", href: "#work" },
+  { name: "Shop", href: "#" },
+  { name: "News", href: "#" },
+  { name: "Contact", href: "#contact" },
+];
+
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: "Work", href: "#work" },
-    { name: "Services", href: "#services" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
-  ];
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "py-4 bg-background/60 backdrop-blur-xl border-b border-white/5 shadow-sm"
-            : "py-6 bg-transparent"
-        }`}
-      >
-        <div className="container mx-auto px-6 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-6 h-6 bg-primary rounded-sm rotate-45 group-hover:rotate-90 transition-transform duration-500"></div>
-            <span className="font-sans font-bold text-xl tracking-[0.2em] text-foreground">
-              NEXUS
-            </span>
-          </Link>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#111111] border-b border-white/5">
+        <div className="max-w-[1400px] mx-auto px-6 h-14 flex items-center justify-between">
+          {/* Logo */}
+          <a href="/" className="flex items-center gap-2 shrink-0" data-testid="link-logo">
+            <div className="w-7 h-7 grid grid-cols-2 gap-[2px]">
+              <div className="bg-white rounded-[2px]"></div>
+              <div className="bg-white rounded-[2px]"></div>
+              <div className="bg-white rounded-[2px]"></div>
+              <div className="bg-white rounded-[2px]"></div>
+            </div>
+            <span className="text-white font-semibold text-base tracking-wide">Orisa</span>
+          </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium tracking-wide text-foreground/80 hover:text-primary transition-colors"
+                className="flex items-center gap-1 px-3 py-1.5 text-sm text-white/80 hover:text-white transition-colors rounded-md hover:bg-white/5"
+                data-testid={`link-nav-${link.name.toLowerCase()}`}
               >
                 {link.name}
+                <ChevronDown size={13} className="opacity-60" />
               </a>
             ))}
-            <a
-              href="#contact"
-              className="relative px-6 py-2.5 text-sm font-medium tracking-wide text-primary border border-primary/30 rounded-full hover:bg-primary/10 transition-colors overflow-hidden group"
-            >
-              <span className="relative z-10">Start a Project</span>
-              <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </a>
           </nav>
 
-          {/* Mobile Toggle */}
-          <button
-            className="md:hidden text-foreground p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Right Icons */}
+          <div className="flex items-center gap-1">
+            <button className="p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-search">
+              <Search size={18} />
+            </button>
+            <button className="p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-theme">
+              <Sun size={18} />
+            </button>
+            <button className="p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-grid">
+              <Grid2x2 size={18} />
+            </button>
+            <button
+              className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              data-testid="button-mobile-menu"
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </header>
 
       {/* Mobile Menu */}
       <AnimatePresence>
-        {mobileMenuOpen && (
+        {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-24 px-6 md:hidden flex flex-col"
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed inset-x-0 top-14 z-40 bg-[#111111] border-b border-white/10 md:hidden"
           >
-            <div className="flex flex-col gap-6 text-2xl font-serif mt-12">
+            <div className="flex flex-col py-4 px-6">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-foreground hover:text-primary transition-colors border-b border-white/5 pb-4"
+                  onClick={() => setMobileOpen(false)}
+                  className="py-3 text-white/80 hover:text-white border-b border-white/5 text-sm flex items-center justify-between"
                 >
                   {link.name}
+                  <ChevronDown size={14} className="opacity-50" />
                 </a>
               ))}
             </div>

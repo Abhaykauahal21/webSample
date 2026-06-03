@@ -24,3 +24,9 @@ id = "ByqEEikxKTO9ap3l87XaT"
 uri = "file://artifacts/orisa-agency/public/projects/project4.png"
 type = "image"
 title = "media campaign visual system"
+
+[[generated]]
+id = "y20XHo5NLtLQVXulWXwZZ"
+uri = "file://attached_assets/generated_images/professional_studio_portrait_of_bba8.png"
+type = "image"
+title = "generated_image"
