@@ -10,7 +10,7 @@ const navLinks = [
   { name: "Page", href: "#" },
   { name: "Portfolio", href: "#work" },
   { name: "Shop", href: "#" },
-  { name: "News", href: "#" },
+  { name: "Career", href: "/career" },
   { name: "Contact", href: "#contact" },
 ];
 
