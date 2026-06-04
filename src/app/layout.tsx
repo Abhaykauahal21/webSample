@@ -16,7 +16,10 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: "ClariSolve TECH | Technology Solutions",
-  description: "Technology solutions that help businesses grow. We help businesses build websites, develop software, automate processes, improve quality, and grow through technology — without the complexity.",
+  description: "Technology solutions that help businesses grow. Founded by Vijay Nadella, we help businesses build websites, develop software, automate processes, improve quality, and grow through technology — without the complexity.",
+  authors: [{ name: "Vijay Nadella — Founder & CEO, ClariSolve Tech" }],
+  creator: "Vijay Nadella",
+  keywords: ["ClariSolve Tech", "Vijay Nadella", "web development", "software solutions", "AI automation", "technology consulting"],
 };
 
 export default function RootLayout({
