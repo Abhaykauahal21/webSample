@@ -12,10 +12,10 @@ function Sparkle({ className = "" }: { className?: string }) {
 }
 
 const socialLinks = [
-  { label: "Twitter", href: "#" },
+ 
   { label: "Facebook", href: "https://www.facebook.com/ClariSolveTech" },
   { label: "Instagram", href: "https://www.instagram.com/ClariSolve_Tech" },
-  { label: "Dribbble", href: "#" },
+ 
 ];
 
 export function Hero() {
@@ -36,7 +36,7 @@ export function Hero() {
       <div className="flex-1 px-3 sm:px-4 md:px-6 pt-3 sm:pt-4 pb-0">
         <div className="relative rounded-2xl overflow-hidden w-full" style={{ background: "#1a1a1a", minHeight: "520px" }}>
           {/* Subtle noise texture */}
-          <div className="absolute inset-0 pointer-events-none opacity-[0.15] z-[1]" style={{ backgroundImage: `url("/noisy.gif?v=2")`, backgroundRepeat: "repeat", backgroundSize: "250px" }} />
+          <div className="absolute inset-0 pointer-events-none opacity-[0.15] z-[1]" style={{ backgroundImage: `url("/noisy.webp?v=2")`, backgroundRepeat: "repeat", backgroundSize: "250px" }} />
 
           {/* Sparkle decorators */}
           <div className="absolute -top-3 -left-3 z-20"><Sparkle /></div>
@@ -53,7 +53,7 @@ export function Hero() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] lg:w-[200px] lg:h-[200px] shrink-0"
+                  className="hidden lg:block relative w-[200px] h-[200px] shrink-0"
                 >
                   <div className="absolute inset-0 rounded-xl p-[1px]">
                     <div className="w-full h-full rounded-xl bg-[#1a1a1a]" />

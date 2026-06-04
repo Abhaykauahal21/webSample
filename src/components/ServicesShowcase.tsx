@@ -12,35 +12,35 @@ const services = [
     title: "Business Websites",
     description: "Premium websites that build trust and convert visitors into customers. Built for outcomes, not buzzwords.",
     metadata: ["Fast, Mobile-First", "SEO Optimized", "Conversion Focused", "High-End Design", "Lead Generation"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1519222970733-f546218fa6d7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "02",
     title: "Web Applications",
     description: "Custom software tailored to how your business actually works. A focused set of services designed to move the numbers.",
     metadata: ["SaaS Platforms", "Internal Tools", "Client Portals", "API Integration", "Scalable Architecture"],
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop",
+    image: "https://media.istockphoto.com/id/2210688897/photo/ux-ui-design-web-and-application-user-design-concepts-web-design-application-design-user.webp?a=1&b=1&s=612x612&w=0&k=20&c=3vTDBUL24n5mH1Hpu3kf9uVqjItR6a2lboOWV_VFQlE= ",
   },
   {
     id: "03",
     title: "E-Commerce",
     description: "Storefronts engineered to sell — fast, mobile-first, and reliable. We simplify complex selling environments.",
     metadata: ["Shopify Development", "Custom Checkouts", "Inventory Sync", "Payment Gateways", "Analytics Integration"],
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop",
+    image: "https://plus.unsplash.com/premium_photo-1664475347754-f633cb166d13?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGVjb21tZXJjZXxlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: "04",
     title: "QA Testing",
     description: "Confidence at every release. We catch problems before customers do, ensuring your technology never fails.",
     metadata: ["Automated Testing", "Manual QA", "Bug Tracking", "Performance Testing", "User Acceptance"],
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop",
+    image: "https://media.istockphoto.com/id/2223826437/photo/q-a-support-and-information-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=gUWMqNabiQV8xFZubtOtCpiqDCLCFJ9C-WYg8xKJUXw=  ",
   },
   {
     id: "05",
     title: "Maintenance & Support",
     description: "Long-term care that keeps your product fast, secure, and current. We handle the complexity for you.",
     metadata: ["Security Patches", "Performance Tuning", "Content Updates", "Bug Fixes", "24/7 Monitoring"],
-    image: "https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=2070&auto=format&fit=crop",
+    image: "https://btech.id/media/images/Page/2024/01/18/Poster_Artikel_43.jpg",
   },
   {
     id: "06",
@@ -54,7 +54,7 @@ const services = [
     title: "AI & Automation",
     description: "AI agents and workflows that quietly do the work in the background. Modern solutions for efficient operations.",
     metadata: ["Custom GPT Agents", "Workflow Automation", "Data Analysis", "Chatbot Integration", "Process Optimization"],
-    image: "https://images.unsplash.com/photo-1555255707-c07966488bc0?q=80&w=2070&auto=format&fit=crop",
+    image: "https://tse2.mm.bing.net/th/id/OIP.bWxFN1qSS4PWS1gQUqD4RQHaHa?cb=thfvnextfalcon&rs=1&pid=ImgDetMain&o=7&rm=3",
   },
 ];
 
@@ -70,9 +70,15 @@ export function ServicesShowcase() {
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top",
-        end: `+=${sections.length * 100}%`,
+        end: `+=${(sections.length - 1) * 100}%`,
         pin: true,
-        scrub: 1,
+        scrub: 0.5,
+        snap: {
+          snapTo: 1 / (sections.length - 1),
+          duration: 0.4,
+          ease: "power2.out",
+          directional: true,
+        },
       },
     });
 
@@ -98,10 +104,8 @@ export function ServicesShowcase() {
           ease: "none",
         }, index);
 
-        // Subtly scale down the previous section to give a "stacked" feel
+        // Keep previous section fully opaque underneath
         masterTl.to(sections[index - 1], {
-          scale: 0.9,
-          opacity: 0.5,
           duration: 1,
           ease: "none",
         }, index);
@@ -111,58 +115,82 @@ export function ServicesShowcase() {
 
       // Inner content animations
       const innerTl = gsap.timeline();
+      const delayOffset = index === 0 ? 0 : 0.2; // First slide: no delay
       
-      // Split text effect (simulated with chars/words stagger)
       if (title) {
-        innerTl.fromTo(title, 
-          { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8, ease: "power4.out" },
-          0.2
-        );
+        if (index === 0) {
+          gsap.set(title, { y: 0, opacity: 1 });
+        } else {
+          innerTl.fromTo(title, 
+            { y: 100, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power4.out" },
+            delayOffset
+          );
+        }
       }
 
       if (desc) {
-        innerTl.fromTo(desc,
-          { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
-          0.4
-        );
+        if (index === 0) {
+          gsap.set(desc, { y: 0, opacity: 1 });
+        } else {
+          innerTl.fromTo(desc,
+            { y: 50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+            delayOffset + 0.2
+          );
+        }
       }
 
       if (meta) {
-        innerTl.fromTo(meta.children,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power2.out" },
-          0.6
-        );
+        if (index === 0) {
+          gsap.set(meta.children, { y: 0, opacity: 1 });
+        } else {
+          innerTl.fromTo(meta.children,
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power2.out" },
+            delayOffset + 0.4
+          );
+        }
       }
 
       if (num) {
-        innerTl.fromTo(num,
-          { opacity: 0 },
-          { opacity: 0, duration: 0 }, // Disable the number watermark animation
-          0
-        );
+        gsap.set(num, { opacity: 0 });
       }
 
       if (imageCard) {
-        innerTl.fromTo(imageCard,
-          { scale: 1.2, opacity: 0, rotateY: 15 },
-          { scale: 1, opacity: 1, rotateY: 0, duration: 1.2, ease: "expo.out" },
-          0.2
-        );
+        if (index === 0) {
+          gsap.set(imageCard, { scale: 1, opacity: 1, rotateY: 0 });
+        } else {
+          innerTl.fromTo(imageCard,
+            { scale: 1.2, opacity: 0, rotateY: 15 },
+            { scale: 1, opacity: 1, rotateY: 0, duration: 1.2, ease: "expo.out" },
+            delayOffset
+          );
+        }
       }
 
       if (image) {
-        innerTl.fromTo(image,
-          { scale: 1.3 },
-          { scale: 1, duration: 1.5, ease: "power2.out" },
-          0
-        );
+        if (index === 0) {
+          gsap.set(image, { scale: 1 });
+        } else {
+          innerTl.fromTo(image,
+            { scale: 1.3 },
+            { scale: 1, duration: 1.5, ease: "power2.out" },
+            0
+          );
+        }
       }
 
       // Add inner timeline to master at the right point
-      masterTl.add(innerTl, index);
+      if (index !== 0) {
+        masterTl.add(innerTl, index);
+      } else {
+        // Subtle parallax for first section so it has scroll feedback
+        const img = section.querySelector(".service-image");
+        if (img) {
+          masterTl.fromTo(img, { scale: 1 }, { scale: 1.08, duration: 1, ease: "none" }, 0);
+        }
+      }
     });
 
     return () => {

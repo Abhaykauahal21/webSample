@@ -11,7 +11,7 @@ const navLinks = [
   { name: "Portfolio", href: "#work" },
   { name: "Shop", href: "#" },
   { name: "Career", href: "/career" },
-  { name: "Contact", href: "#contact" },
+  { name: "Contact", href: "#connect" },
 ];
 
 export function Navbar() {
@@ -19,7 +19,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#111111] border-b border-white/5">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-[1400px] mx-auto px-6 h-14 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0" data-testid="link-logo">
@@ -37,7 +37,7 @@ export function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="flex items-center gap-1 px-3 py-1.5 text-sm text-white/80 hover:text-white transition-colors rounded-md hover:bg-white/5"
+                className="flex items-center gap-1 px-3 py-1.5 text-sm text-white/80 hover:text-white transition-colors rounded-md"
                 data-testid={`link-nav-${link.name.toLowerCase()}`}
               >
                 {link.name}
@@ -48,9 +48,7 @@ export function Navbar() {
 
           {/* Right Icons */}
           <div className="flex items-center gap-1">
-            <button className="p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-search">
-              <Search size={18} />
-            </button>
+            
             <button className="hidden sm:flex p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-theme">
               <Sun size={18} />
             </button>

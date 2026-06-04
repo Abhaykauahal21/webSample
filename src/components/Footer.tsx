@@ -52,15 +52,15 @@ export function Footer() {
             </div>
 
             <div className="flex flex-col gap-3 md:gap-4">
-              <a href="tel:+212-555-7398" className="text-white/60 hover:text-white transition-colors text-base md:text-xl">
-                +212-555-7398
+              <a href="tel:+91 85002 22838" className="text-white/60 hover:text-white transition-colors text-base md:text-xl">
+                +91 85002 22838
               </a>
-              <a href="mailto:hello@clarisolve.com" className="text-white/60 hover:text-white transition-colors text-base md:text-xl font-medium">
-                hello@clarisolve.com
+              <a href="mailto:vijaynadella@clarisolvetech.com" className="text-white/60 hover:text-white transition-colors text-base md:text-xl font-medium">
+                vijaynadella@clarisolvetech.com
               </a>
               <p className="text-white/40 text-sm md:text-lg leading-tight max-w-[280px]">
-                245 Fifth Avenue, Suite 1800<br />
-                New York, NY 10016, USA
+                <br />
+                Hyderabad, India, PINCODE 500001
               </p>
             </div>
           </div>

@@ -10,6 +10,7 @@ import { FounderSection } from "@/components/FounderSection";
 import { Process } from "@/components/Process";
 import { TestimonialShowcase } from "@/components/TestimonialShowcase";
 import { NetworkShowcase } from "@/components/NetworkShowcase";
+import { Connect } from "@/components/Connect";
 import { Footer } from "@/components/Footer";
 import { useLenis } from "@/hooks/useLenis";
 
@@ -42,6 +43,7 @@ export default function Home() {
       <Process />
       <TestimonialShowcase />
       <NetworkShowcase />
+      <Connect />
       <Footer />
     </main>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
@@ -41,18 +41,8 @@ export function TestimonialShowcase() {
   const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 640px)");
-    setIsMobile(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-
-  useEffect(() => {
-    if (isMobile) return;
     if (!containerRef.current || !innerRef.current || !leftRef.current || !rightRef.current) return;
 
     const cards = cardsRef.current.filter(Boolean) as HTMLDivElement[];
@@ -109,95 +99,15 @@ export function TestimonialShowcase() {
       if (tl.scrollTrigger) tl.scrollTrigger.kill();
       tl.kill();
     };
-  }, [isMobile]);
-
-  if (isMobile) {
-    return (
-      <section className="relative w-full bg-[#0C0C0C] py-12 px-4 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto bg-[#141414] rounded-[24px] p-6">
-          {/* Header */}
-          <div className="flex items-center gap-2 text-white/50 text-[10px] font-bold tracking-[0.2em] uppercase mb-2">
-            <span>Why choose us</span>
-            <ArrowUpRight size={14} />
-          </div>
-          <h2 className="text-[2.5rem] font-bold text-white leading-[0.95] tracking-tighter mb-2">
-            How We<br />Solve Problems
-          </h2>
-          <p className="text-white/50 text-sm leading-relaxed mb-8">
-            We bring clarity, quality, and true partnership to every project we take on.
-          </p>
-
-          {/* Pillar Cards */}
-          <div className="flex flex-col gap-3 mb-10">
-            {[
-              { title: "Clarity", desc: "We help businesses understand the right solution before investing.", icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg> },
-              { title: "Quality", desc: "Every solution is built with long-term reliability in mind.", icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.26L12 1.75z"/></svg> },
-              { title: "Partnership", desc: "We aim to become a trusted technology partner — not a vendor.", icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> },
-            ].map((pillar) => (
-              <div key={pillar.title} className="flex items-start gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white/40 shrink-0 border border-white/10">
-                  {pillar.icon}
-                </div>
-                <div className="min-w-0">
-                  <h4 className="text-white text-sm font-bold tracking-tight mb-1 uppercase">{pillar.title}</h4>
-                  <p className="text-white/40 text-xs leading-relaxed font-light">{pillar.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Divider */}
-          <div className="border-t border-white/5 mb-8" />
-
-          {/* Client Feedback */}
-          <div className="flex items-center gap-2 text-white/50 text-[10px] font-bold tracking-[0.2em] uppercase mb-4">
-            <span>Client feedback</span>
-          </div>
-          <h3 className="text-2xl font-bold text-white leading-tight tracking-tight mb-6">
-            What our clients<br />are saying
-          </h3>
-
-          {/* Testimonial Cards - Horizontal Scroll */}
-          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-6 px-6 pb-2 scrollbar-hide">
-            {testimonials.map((t) => (
-              <div
-                key={t.id}
-                className="snap-center shrink-0 w-[85vw] bg-[#0C0C0C] border border-white/5 rounded-[20px] p-6 flex flex-col justify-between shadow-2xl"
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, idx) => (
-                    <svg key={idx} width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37">
-                      <path d="M12 1.75l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.26L12 1.75z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-white text-base font-medium leading-tight tracking-tight mb-6 flex-1">
-                  &ldquo;{t.content}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl overflow-hidden grayscale shrink-0">
-                    <img src={t.avatar} alt={t.author} className="w-full h-full object-cover" />
-                  </div>
-                  <div className="min-w-0">
-                    <h4 className="text-white font-bold text-sm leading-none mb-0.5">{t.author}</h4>
-                    <p className="text-white/40 text-xs font-light truncate">{t.role} &middot; {t.location}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
+  }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full bg-[#0C0C0C] py-20 px-8 overflow-visible">
-      <div ref={innerRef} className="max-w-[1400px] mx-auto min-h-[80vh] bg-[#141414] rounded-[40px] p-20 flex flex-col lg:flex-row items-center gap-16">
+    <section ref={containerRef} className="relative w-full bg-[#0C0C0C] py-20 px-4 md:px-8 overflow-visible">
+      <div ref={innerRef} className="max-w-[1400px] mx-auto min-h-[80vh] bg-[#141414] rounded-[40px] p-8 md:p-20 flex flex-col lg:flex-row items-center gap-16">
         
         {/* Left Side: Static Content (60%) */}
         <div ref={leftRef} className="w-full lg:w-[55%] flex flex-col items-start justify-center">
-          <div className="flex items-center gap-2 text-white/50 text-xs font-bold tracking-[0.2em] uppercase mb-8">
+          <div className="flex items-center gap-2 text-white/50 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-8">
             <span>Why choose us</span>
             <ArrowUpRight size={14} />
           </div>
@@ -218,7 +128,7 @@ export function TestimonialShowcase() {
           </div>
 
           {/* Enhanced Pillars Section */}
-          <div className="grid grid-cols-3 gap-6 w-full pt-16 border-t border-white/5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full pt-16 border-t border-white/5">
             {[
               { 
                 title: "Clarity", 
@@ -256,6 +166,7 @@ export function TestimonialShowcase() {
                 transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
                 className="relative flex flex-col p-6 rounded-3xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-500 group overflow-hidden"
               >
+                {/* Subtle Gradient Background */}
                 <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700" />
                 
                 <div className="mb-6 w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white/40 group-hover:text-primary group-hover:scale-110 transition-all duration-500 border border-white/10">
@@ -270,6 +181,7 @@ export function TestimonialShowcase() {
                   {pillar.desc}
                 </p>
 
+                {/* Bottom line animation */}
                 <div className="absolute bottom-0 left-0 h-[2px] bg-primary w-0 group-hover:w-full transition-all duration-700 ease-in-out" />
               </motion.div>
             ))}
@@ -277,35 +189,35 @@ export function TestimonialShowcase() {
         </div>
 
         {/* Right Side: Stacking Cards (40%) */}
-        <div ref={rightRef} className="relative w-full lg:w-[45%] h-[500px] flex items-center justify-center">
+        <div ref={rightRef} className="relative w-full lg:w-[45%] h-[450px] md:h-[500px] flex items-center justify-center">
           {testimonials.map((t, i) => (
             <div
               key={t.id}
               ref={(el) => {
                 cardsRef.current[i] = el;
               }}
-              className="absolute inset-0 w-full h-full bg-[#0C0C0C] border border-white/5 rounded-[32px] p-12 flex flex-col justify-between shadow-2xl"
+              className="absolute inset-0 w-full h-full bg-[#0C0C0C] border border-white/5 rounded-[32px] p-8 md:p-12 flex flex-col justify-between shadow-2xl"
               style={{ willChange: "transform, opacity" }}
             >
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, idx) => (
-                  <svg key={idx} width="16" height="16" viewBox="0 0 24 24" fill="#D4AF37" className="w-5 h-5">
+                  <svg key={idx} width="16" height="16" viewBox="0 0 24 24" fill="#D4AF37" className="w-4 h-4 md:w-5 md:h-5">
                     <path d="M12 1.75l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.26L12 1.75z" />
                   </svg>
                 ))}
               </div>
 
-              <p className="text-white text-2xl lg:text-3xl font-medium leading-tight tracking-tight mb-12">
-                &ldquo;{t.content}&rdquo;
+              <p className="text-white text-xl md:text-2xl lg:text-3xl font-medium leading-tight tracking-tight mb-12">
+                "{t.content}"
               </p>
 
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
                   <img src={t.avatar} alt={t.author} className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h4 className="text-white font-bold text-lg leading-none mb-1">{t.author}</h4>
-                  <p className="text-white/40 text-sm font-light">
+                  <p className="text-white/40 text-xs md:text-sm font-light">
                     {t.role}<br />{t.location}
                   </p>
                 </div>
