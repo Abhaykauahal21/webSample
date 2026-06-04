@@ -47,6 +47,7 @@ export function Footer() {
                 src="https://clarisolvetech.lovable.app/assets/clarisolve-logo-B7oqDF0B.png" 
                 alt="ClariSolve TECH Logo" 
                 className="h-8 md:h-10 w-auto object-contain"
+                loading="lazy"
               />
               <span className="text-white text-xl md:text-2xl font-bold tracking-tight">ClariSolve <span className="text-white/60 font-medium text-lg md:text-xl">TECH</span></span>
             </div>

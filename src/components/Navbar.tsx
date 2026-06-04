@@ -27,6 +27,7 @@ export function Navbar() {
               src="https://clarisolvetech.lovable.app/assets/clarisolve-logo-B7oqDF0B.png" 
               alt="ClariSolve TECH Logo" 
               className="h-8 w-auto object-contain"
+              loading="lazy"
             />
             <span className="text-white font-bold text-sm sm:text-lg tracking-tight">ClariSolve <span className="text-white/60 font-medium">TECH</span></span>
           </Link>

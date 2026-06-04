@@ -82,15 +82,17 @@ const metrics = [
 
 export function Connect() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const glowRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    const glow = glowRef.current
+    if (!glow) return
     const handleMouseMove = (e: MouseEvent) => {
       if (!sectionRef.current) return
       const rect = sectionRef.current.getBoundingClientRect()
-      const x = (e.clientX - rect.left) / rect.width
-      const y = (e.clientY - rect.top) / rect.height
-      setMousePos({ x, y })
+      const x = ((e.clientX - rect.left) / rect.width) * 100
+      const y = ((e.clientY - rect.top) / rect.height) * 100
+      glow.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255, 140, 0, 0.3) 0%, transparent 60%)`
     }
     window.addEventListener("mousemove", handleMouseMove, { passive: true })
     return () => window.removeEventListener("mousemove", handleMouseMove)
@@ -103,11 +105,11 @@ export function Connect() {
       className="relative py-24 md:py-36 px-4 md:px-8 bg-[#0C0C0C] overflow-hidden"
     >
       <div
-        className="absolute inset-0 opacity-[0.15]"
+        ref={glowRef}
+        className="absolute inset-0 opacity-[0.15] pointer-events-none"
         style={{
-          background: `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(255, 140, 0, 0.3) 0%, transparent 60%)`,
+          background: "radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.3) 0%, transparent 60%)",
           transition: "background 0.3s ease",
-          pointerEvents: "none",
         }}
       />
 

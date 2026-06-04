@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 function RevealWords({ text, className = "" }: { text: string; className?: string }) {
   const words = text.split(" ");
@@ -43,11 +42,8 @@ const steps = [
 ];
 
 export function Process() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-[#0C0C0C] px-4 md:px-8 relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-[#0C0C0C] px-4 md:px-8 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         <div className="bg-[#141414] rounded-[40px] p-8 md:p-20">
           {/* Header */}
@@ -72,11 +68,8 @@ export function Process() {
           {/* Steps */}
           <div className="max-w-3xl mx-auto">
             {steps.map((step, index) => (
-              <motion.div
+              <div
                 key={step.num}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="relative flex gap-6 md:gap-10 pb-12 md:pb-16 last:pb-0 group"
               >
                 {index !== steps.length - 1 && (
@@ -115,7 +108,7 @@ export function Process() {
                     <RevealWords text={step.desc} />
                   </motion.p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

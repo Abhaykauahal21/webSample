@@ -252,6 +252,7 @@ export function ServicesShowcase() {
                 src={service.image}
                 alt={service.title}
                 className="service-image w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
               />
               <div className="absolute bottom-8 left-8 z-20">
                 <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-black transform group-hover:scale-110 group-hover:rotate-45 transition-all duration-500 cursor-pointer">

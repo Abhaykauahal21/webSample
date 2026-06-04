@@ -58,13 +58,13 @@ export function Hero() {
                   <div className="absolute inset-0 rounded-xl p-[1px]">
                     <div className="w-full h-full rounded-xl bg-[#1a1a1a]" />
                   </div>
-                  <img src="/founder.png" alt="Creative professional" className="absolute inset-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)] object-cover object-top rounded-xl" />
+                  <img src="/founder.png" alt="Creative professional" className="absolute inset-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)] object-cover object-top rounded-xl" loading="lazy" />
                 </motion.div>
 
                 {/* Logo + text */}
                 <div className="flex flex-col gap-3 md:gap-4 flex-1 min-w-0">
                   <div className="flex items-center gap-2 md:gap-3">
-                    <img src="https://clarisolvetech.lovable.app/assets/clarisolve-logo-B7oqDF0B.png" alt="ClariSolve TECH Logo" className="h-8 md:h-10 w-auto object-contain shrink-0" />
+                    <img src="https://clarisolvetech.lovable.app/assets/clarisolve-logo-B7oqDF0B.png" alt="ClariSolve TECH Logo" className="h-8 md:h-10 w-auto object-contain shrink-0" loading="lazy" />
                     <span className="text-white font-bold tracking-tight text-sm md:text-xl truncate">ClariSolve <span className="text-white/60 font-medium">TECH</span></span>
                   </div>
                   <div className="flex flex-col gap-2 md:gap-4">

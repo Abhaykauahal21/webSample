@@ -58,6 +58,7 @@ function ProjectCard({ project, index, scrollYProgress }: { project: typeof proj
             alt={project.title}
             style={{ y: imageY }}
             className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
           />
         </div>
 

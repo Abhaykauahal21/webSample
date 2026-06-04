@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const networkImages = [
   "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop",
@@ -23,7 +23,7 @@ function NetworkImage({ src, index, total, scrollYProgress }: { src: string; ind
 
   return (
     <motion.div
-      className="absolute rounded-full overflow-hidden border-[4px] border-[#0C0C0C] shadow-2xl transition-transform duration-500 hover:scale-110 hover:z-50 cursor-pointer group hidden md:block"
+      className="absolute rounded-full overflow-hidden border-[4px] border-[#0C0C0C] shadow-2xl transition-transform duration-500 hover:scale-110 hover:z-50 cursor-pointer group"
       style={{
         width: "140px",
         height: "140px",
@@ -36,7 +36,7 @@ function NetworkImage({ src, index, total, scrollYProgress }: { src: string; ind
         scale,
       }}
     >
-      <img src={src} alt={`Network member ${index}`} className="w-full h-full object-cover" />
+      <img src={src} alt={`Network member ${index}`} className="w-full h-full object-cover" loading="lazy" />
     </motion.div>
   );
 }
@@ -58,6 +58,16 @@ function AnimatedWord({ word, index, total, scrollYProgress }: { word: string; i
 
 export function NetworkShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start 80%", "end start"],
@@ -69,32 +79,33 @@ export function NetworkShowcase() {
   return (
     <section ref={containerRef} className="relative w-full bg-[#0C0C0C] py-24 flex flex-col items-center justify-center overflow-hidden">
       <div className="relative flex items-center justify-center h-[220px] w-full max-w-4xl mx-auto mb-12">
-        {networkImages.map((src, i) => (
-          <NetworkImage key={i} src={src} index={i} total={networkImages.length} scrollYProgress={scrollYProgress} />
-        ))}
-
-        {/* Mobile View: Static Images */}
-        {networkImages.map((src, i) => {
-          const offset = i - (networkImages.length - 1) / 2;
-          const xPos = offset * 45;
-          const yPos = Math.pow(Math.abs(offset), 2) * 8;
-          return (
-            <div
-              key={`mobile-${i}`}
-              className="absolute rounded-full overflow-hidden border-[3px] border-[#0C0C0C] shadow-lg md:hidden"
-              style={{
-                width: "80px",
-                height: "80px",
-                left: `calc(50% + ${xPos}px)`,
-                top: `${yPos}px`,
-                transform: `translateX(-50%)`,
-                zIndex: networkImages.length - Math.abs(offset),
-              }}
-            >
-              <img src={src} alt={`Network member ${i}`} className="w-full h-full object-cover" />
-            </div>
-          );
-        })}
+        {isMobile ? (
+          networkImages.map((src, i) => {
+            const offset = i - (networkImages.length - 1) / 2;
+            const xPos = offset * 45;
+            const yPos = Math.pow(Math.abs(offset), 2) * 8;
+            return (
+              <div
+                key={`mobile-${i}`}
+                className="absolute rounded-full overflow-hidden border-[3px] border-[#0C0C0C] shadow-lg"
+                style={{
+                  width: "80px",
+                  height: "80px",
+                  left: `calc(50% + ${xPos}px)`,
+                  top: `${yPos}px`,
+                  transform: `translateX(-50%)`,
+                  zIndex: networkImages.length - Math.abs(offset),
+                }}
+              >
+                <img src={src} alt={`Network member ${i}`} className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            );
+          })
+        ) : (
+          networkImages.map((src, i) => (
+            <NetworkImage key={i} src={src} index={i} total={networkImages.length} scrollYProgress={scrollYProgress} />
+          ))
+        )}
       </div>
 
       <div className="relative z-10 text-center max-w-4xl px-6 flex flex-col items-center">

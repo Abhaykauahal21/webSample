@@ -70,6 +70,7 @@ function MobileFounderSection() {
             src="/founderSection.png"
             alt="Vijay Nadella - Founder"
             className="w-full h-full object-cover object-[50%_15%]"
+            loading="lazy"
           />
 
           {/* Dark gradient overlay */}
@@ -241,6 +242,7 @@ export function FounderSection() {
               src="/founderSection.png"
               alt="Founder Background"
               className="w-full h-full object-cover object-[95%_top] lg:object-right-top"
+              loading="lazy"
             />
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#0C0C0C] via-[#0C0C0C]/60 to-transparent z-10 hidden lg:block" />
