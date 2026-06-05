@@ -75,9 +75,9 @@ const trustPoints = [
 ]
 
 const metrics = [
-  { value: 50, suffix: "+", label: "Projects Delivered" },
+  { value: 20, suffix: "+", label: "Projects Delivered" },
   { value: 98, suffix: "%", label: "Client Satisfaction" },
-  { value: 5, suffix: "+", label: "Years Experience" },
+  { value: 1, suffix: "+", label: "Years Experience" },
 ]
 
 export function Connect() {
