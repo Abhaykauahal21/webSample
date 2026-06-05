@@ -67,7 +67,7 @@ function MobileFounderSection() {
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[250px] h-[250px] bg-[#ff8c00]/15 blur-[100px] rounded-full z-0" />
 
           <img
-            src="/founderSection.webp"
+            src="/founderSection.png"
             alt="Vijay Nadella - Founder"
             className="w-full h-full object-cover object-[50%_15%]"
             loading="lazy"
