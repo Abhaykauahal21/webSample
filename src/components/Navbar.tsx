@@ -41,7 +41,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0" data-testid="link-logo">
             <img 
-              src="/logo.png" 
+              src="/VijayCompanyLogo.webp" 
               alt="ClariSolve TECH Logo" 
               className="h-16 sm:h-20 mt-5 w-auto object-contain"
               loading="lazy"
