@@ -17,7 +17,7 @@ const testimonials = [
   {
     id: 1,
     content: "They delivered not just a design, but a complete brand experience. Strategic, creative, and incredibly detail-oriented.",
-    author: "अमृता शर्मा",
+    author: "Amrita Sharma",
     role: "Head of Marketing",
     location: "London, United Kingdom",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop",
@@ -25,7 +25,7 @@ const testimonials = [
   {
     id: 2,
     content: "Working with ClariSolve was a game-changer for our startup. Their ability to translate complex ideas into intuitive interfaces is unmatched.",
-    author: "अर्जुन वर्मा",
+    author: "Arjun Verma",
     role: "Product Lead",
     location: "San Francisco, USA",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop",
@@ -33,7 +33,7 @@ const testimonials = [
   {
     id: 3,
     content: "The attention to detail and the level of craftsmanship they put into every pixel is truly world-class. Highly recommended.",
-    author: "प्रिया पटेल",
+    author: "Priya Patel",
     role: "Creative Director",
     location: "Madrid, Spain",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop",
