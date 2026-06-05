@@ -4,12 +4,9 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 const socialLinks = [
-  { label: "Twitter", href: "#" },
-  { label: "Facebook", href: "https://www.facebook.com/ClariSolveTech" },
+  { label: "Facebook", href: "https://www.facebook.com/people/Clarisolvetech/61590262391170/" },
   { label: "Instagram", href: "https://www.instagram.com/ClariSolve_Tech" },
-  { label: "Linkedin", href: "#" },
-  { label: "Behance", href: "#" },
-  { label: "Dribbble", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/115284051/" },
 ];
 
 const navLinks1 = [
