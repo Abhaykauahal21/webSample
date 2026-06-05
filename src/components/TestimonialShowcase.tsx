@@ -161,14 +161,16 @@ function MobileTestimonialShowcase() {
 
         {/* CTA */}
         <div className="flex items-center gap-3 mt-6">
-          <button className="px-6 py-3 rounded-full bg-[#141414] text-white/60 text-sm font-medium border border-white/5">
-            View Latest Projects
-          </button>
-          <button className="w-12 h-12 rounded-full bg-[#141414] text-white/60 flex items-center justify-center border border-white/5">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-          </button>
+          <Link href="#work" className="flex items-center gap-3 group">
+            <button className="px-6 py-3 rounded-full bg-[#141414] text-white/60 text-sm font-medium border border-white/5 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black">
+              View Latest Projects
+            </button>
+            <div className="w-12 h-12 rounded-full bg-[#141414] text-white/60 flex items-center justify-center border border-white/5 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black group-hover:rotate-45">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </div>
+          </Link>
         </div>
       </div>
     </section>
