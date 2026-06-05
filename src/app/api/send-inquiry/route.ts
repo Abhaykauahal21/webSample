@@ -88,7 +88,12 @@ export async function POST(request: Request) {
       );
     }
 
-    await Promise.allSettled(emailPromises);
+    const results = await Promise.allSettled(emailPromises);
+    for (const result of results) {
+      if (result.status === "rejected") {
+        console.error("Email send failed:", result.reason);
+      }
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
