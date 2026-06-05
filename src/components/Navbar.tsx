@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Search, Sun, Grid2x2, ChevronDown, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,20 +14,38 @@ const navLinks = [
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY < 10) {
+        setVisible(true);
+      } else if (currentY > lastScrollY.current) {
+        setVisible(false);
+        setMobileOpen(false);
+      } else {
+        setVisible(true);
+      }
+      lastScrollY.current = currentY;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+      <header className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full"}`}>
         <div className="max-w-[1400px] mx-auto px-6 h-14 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 shrink-0" data-testid="link-logo">
+          <Link href="/" className="flex items-center shrink-0" data-testid="link-logo">
             <img 
-              src="https://clarisolvetech.lovable.app/assets/clarisolve-logo-B7oqDF0B.png" 
+              src="/logo.png" 
               alt="ClariSolve TECH Logo" 
-              className="h-8 w-auto object-contain"
+              className="h-16 sm:h-20 mt-5 w-auto object-contain"
               loading="lazy"
             />
-            <span className="text-white font-bold text-sm sm:text-lg tracking-tight">ClariSolve <span className="text-white/60 font-medium">TECH</span></span>
           </Link>
 
           {/* Desktop Nav */}
@@ -49,7 +67,7 @@ export function Navbar() {
           <div className="flex items-center gap-1">
             
             <button className="hidden sm:flex p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-theme">
-              <Sun size={18} />
+              {/* <Sun size={18} /> */}
             </button>
             <button className="hidden sm:flex p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-grid">
               <Grid2x2 size={18} />
