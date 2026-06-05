@@ -13,7 +13,7 @@ function Sparkle({ className = "" }: { className?: string }) {
 
 const socialLinks = [
  
-  { label: "Facebook", href: "https://www.facebook.com/ClariSolveTech" },
+  { label: "Facebook", href: "https://www.facebook.com/people/Clarisolvetech/61590262391170/" },
   { label: "Instagram", href: "https://www.instagram.com/ClariSolve_Tech" },
  
 ];
