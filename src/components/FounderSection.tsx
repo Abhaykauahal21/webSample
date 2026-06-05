@@ -68,7 +68,7 @@ function MobileFounderSection() {
 
           <img
             src="/founderSection.png"
-            alt="Vijay Nadella - Founder"
+            alt="Vijay Nadella - Founder & CEO"
             className="w-full h-full object-cover object-[50%_15%]"
             loading="lazy"
           />
