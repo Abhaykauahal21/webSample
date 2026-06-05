@@ -126,7 +126,7 @@ export function Hero() {
                   ))}
                 </motion.div>
 
-                <motion.a href="tel:+015557398" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.8 }} className="text-white/60 hover:text-white transition-colors text-sm font-mono tracking-widest whitespace-nowrap shrink-0">
+                <motion.a href="tel:+918500222838" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.8 }} className="text-white/60 hover:text-white transition-colors text-sm font-mono tracking-widest whitespace-nowrap shrink-0">
                   [ (+91) 85002 22838]
                 </motion.a>
               </div>
