@@ -102,7 +102,7 @@ export function Connect() {
     <section
       id="connect"
       ref={sectionRef}
-      className="relative py-24 md:py-36 px-4 md:px-8 bg-[#0C0C0C] overflow-hidden"
+      className="relative py-12 md:py-36 px-4 md:px-8 bg-[#0C0C0C] overflow-hidden"
     >
       <div
         ref={glowRef}
@@ -199,7 +199,20 @@ export function Connect() {
               </div>
               <div>
                 <span className="text-white/40 text-xs uppercase tracking-[0.15em]">Email</span>
-                <p className="text-white/80 text-sm">vijaynadella@clarisolvetech.com</p>
+                <div className="flex items-center gap-2">
+                  <a href="mailto:vijaynadella@clarisolvetech.com?subject=Inquiry" className="text-white/80 text-sm hover:text-primary transition-colors">
+                    vijaynadella@clarisolvetech.com
+                  </a>
+                  <button
+                    onClick={() => navigator.clipboard.writeText("vijaynadella@clarisolvetech.com")}
+                    className="text-white/30 hover:text-white/60 transition-colors text-xs"
+                    title="Copy email"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                  </button>
+                </div>
               </div>
               <div className="w-px h-10 bg-white/5 mx-2" />
               <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
@@ -220,7 +233,7 @@ export function Connect() {
               className="flex flex-wrap gap-4"
             >
               <a
-                href="#"
+                href="tel:+918500222838"
                 className="group inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-black font-semibold text-sm rounded-full transition-all duration-300"
               >
                 Schedule a Call

@@ -33,7 +33,7 @@ const capabilities = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#0C0C0C] pt-16 md:pt-32 pb-10 px-4 md:px-8 overflow-hidden">
+    <footer className="bg-[#0C0C0C] pt-10 md:pt-32 pb-10 px-4 md:px-8 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         {/* Top Section */}
         <div className="flex flex-col lg:flex-row justify-between gap-10 md:gap-16 mb-20 md:mb-40">
@@ -53,9 +53,19 @@ export function Footer() {
               <a href="tel:+91 85002 22838" className="text-white/60 hover:text-white transition-colors text-base md:text-xl">
                 +91 85002 22838
               </a>
-              <a href="mailto:vijaynadella@clarisolvetech.com" className="text-white/60 hover:text-white transition-colors text-base md:text-xl font-medium">
+              <a href="mailto:vijaynadella@clarisolvetech.com?subject=Inquiry" className="text-white/60 hover:text-white transition-colors text-base md:text-xl font-medium">
                 vijaynadella@clarisolvetech.com
               </a>
+              <button
+                onClick={() => navigator.clipboard.writeText("vijaynadella@clarisolvetech.com")}
+                className="text-white/30 hover:text-white/60 transition-colors text-xs inline-flex items-center gap-1"
+                title="Copy email"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                <span className="text-[10px]">Copy</span>
+              </button>
               <p className="text-white/40 text-sm md:text-lg leading-tight max-w-[280px]">
                 <br />
                 Hyderabad, India, PINCODE 500055.
