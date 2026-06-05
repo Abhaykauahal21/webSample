@@ -5,9 +5,9 @@ import { Sparkles } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
 const stats = [
-  { value: "50+", label: "Projects Delivered" },
+  { value: "20+", label: "Projects Delivered" },
   { value: "98%", label: "Client Satisfaction" },
-  { value: "5+", label: "Years Building Digital Solutions" },
+  { value: "1+", label: "Years Building Digital Solutions" },
 ];
 
 function Word({ word, index, totalWords, scrollYProgress }: {
@@ -67,7 +67,7 @@ function MobileFounderSection() {
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[250px] h-[250px] bg-[#ff8c00]/15 blur-[100px] rounded-full z-0" />
 
           <img
-            src="/founderSection.png"
+            src="/founderSection.webp"
             alt="Vijay Nadella - Founder"
             className="w-full h-full object-cover object-[50%_15%]"
             loading="lazy"
@@ -226,7 +226,7 @@ export function FounderSection() {
   }
 
   return (
-    <section ref={containerRef} className="relative w-full bg-[#0C0C0C] py-24 px-4 md:px-8 overflow-hidden">
+    <section ref={containerRef} className="relative w-full bg-[#0C0C0C] py-12 md:py-24 px-4 md:px-8 overflow-hidden">
       <div className="max-w-[1400px] mx-auto bg-[#141414] rounded-[40px] overflow-hidden border border-white/5 shadow-2xl relative min-h-[600px] lg:min-h-[800px]">
 
         {/* Background Image Wrapper */}

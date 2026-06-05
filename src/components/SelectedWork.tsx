@@ -98,7 +98,7 @@ export function SelectedWork() {
   });
 
   return (
-    <section id="work" ref={containerRef} className="bg-[#0C0C0C] py-20 relative overflow-hidden">
+    <section id="work" ref={containerRef} className="bg-[#0C0C0C] py-12 md:py-20 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8">
         <div className="bg-[#141414] rounded-[40px] py-24 md:py-32 relative overflow-hidden">
           {/* Sticky Background Symbol */}

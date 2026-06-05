@@ -43,7 +43,7 @@ const steps = [
 
 export function Process() {
   return (
-    <section className="py-20 md:py-32 bg-[#0C0C0C] px-4 md:px-8 relative overflow-hidden">
+    <section className="py-12 md:py-32 bg-[#0C0C0C] px-4 md:px-8 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         <div className="bg-[#141414] rounded-[40px] p-8 md:p-20">
           {/* Header */}

@@ -88,7 +88,7 @@ function PillarCard({ pillar, idx }: { pillar: typeof pillars[0]; idx: number })
 
 function MobileTestimonialShowcase() {
   return (
-    <section className="relative w-full bg-[#0C0C0C] py-16 px-4 overflow-hidden">
+    <section className="relative w-full bg-[#0C0C0C] py-10 px-4 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
         <div className="flex items-center gap-2 text-white/50 text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
@@ -247,7 +247,7 @@ export function TestimonialShowcase() {
   if (isMobile) return <MobileTestimonialShowcase />;
 
   return (
-    <section ref={containerRef} className="relative w-full bg-[#0C0C0C] py-20 px-4 md:px-8 overflow-visible">
+    <section ref={containerRef} className="relative w-full bg-[#0C0C0C] py-12 md:py-20 px-4 md:px-8 overflow-visible">
       <div ref={innerRef} className="max-w-[1400px] mx-auto min-h-[80vh] bg-[#141414] rounded-[40px] p-8 md:p-20 flex flex-col lg:flex-row items-center gap-16">
 
         {/* Left Side: Static Content (60%) */}

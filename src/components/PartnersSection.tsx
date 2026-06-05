@@ -62,7 +62,7 @@ const loopedPartners = [...partners, ...partners, ...partners];
 function BlobButton() {
   return (
     <motion.a
-      href="#contact"
+      href="/start-project"
       className="relative flex flex-col items-center justify-center w-[120px] h-[120px] md:w-[150px] md:h-[150px] shrink-0 cursor-pointer select-none"
       whileHover={{ scale: 1.06 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -150,7 +150,7 @@ export function PartnersSection() {
   });
 
   return (
-    <section ref={containerRef} className="bg-[#0C0C0C] py-24 relative overflow-hidden">
+    <section ref={containerRef} className="bg-[#0C0C0C] py-12 md:py-24 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-8 md:px-14">
         {/* Top Label */}
         <div className="flex items-center gap-2 text-white/50 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-8">

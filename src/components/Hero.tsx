@@ -40,9 +40,9 @@ export function Hero() {
           <div className="absolute inset-0 pointer-events-none opacity-[0.15] z-[1]" style={{ backgroundImage: `url("/noisy.webp?v=2")`, backgroundRepeat: "repeat", backgroundSize: "250px" }} />
 
           {/* Sparkle decorators */}
-          <div className="absolute -top-3 -left-3 z-20"><Sparkle /></div>
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20"><Sparkle /></div>
-          <div className="absolute -top-3 -right-3 z-20"><Sparkle /></div>
+          <div className=" absolute -top-5 -left-3 z-20"><Sparkle /></div>
+          <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20"><Sparkle /></div>
+          <div className="absolute -top-5 -right-3 z-20"><Sparkle /></div>
 
           {/* Card content */}
           <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center gap-6 md:gap-8 p-5 md:p-12 h-full min-h-[400px] md:min-h-[480px]">
@@ -82,7 +82,7 @@ export function Hero() {
               {/* CTA + Separator row on mobile */}
               <div className="flex flex-col gap-4">
                 <motion.a
-                  href="#contact"
+                  href="/start-project"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7 }}

@@ -206,7 +206,7 @@ export function ServicesShowcase() {
           ref={(el) => {
             sectionsRef.current[i] = el;
           }}
-          className="absolute inset-x-4 md:inset-x-8 top-0 bottom-4 rounded-[40px] flex flex-col lg:flex-row items-center justify-between px-8 md:px-20 py-20 lg:py-0 bg-[#141414] overflow-hidden"
+          className="absolute inset-x-4 md:inset-x-8 top-0 bottom-0 md:bottom-4 rounded-[40px] flex flex-col lg:flex-row items-center justify-between px-8 md:px-20 py-20 lg:py-0 bg-[#141414] overflow-hidden"
           style={{ willChange: "transform, opacity, scale" }}
         >
           {/* Top Bar inside slide */}

@@ -15,7 +15,7 @@ const jobs = [
   {
     title: "UI/UX Designer",
     type: "Full-time",
-    location: "New York, USA",
+    location: "Remote",
     dept: "Design",
     desc: "Create intuitive, beautiful interfaces and end-to-end user experiences. Own the design process from research to high-fidelity prototypes.",
   },
@@ -29,7 +29,7 @@ const jobs = [
   {
     title: "Project Manager",
     type: "Contract",
-    location: "London, UK",
+    location: "Remote",
     dept: "Operations",
     desc: "Lead cross-functional teams to deliver projects on time and within scope. Strong communication and agile methodology expertise required.",
   },

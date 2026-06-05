@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import { Globe } from "@/components/ui/cobe-globe"
 import { useInView, animate } from "framer-motion"
@@ -239,13 +240,13 @@ export function Connect() {
                 Schedule a Call
                 <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
               </a>
-              <a
-                href="#"
+              <Link
+                href="/start-project"
                 className="group inline-flex items-center gap-2 px-6 py-3 border border-white/20 hover:border-white/40 text-white text-sm rounded-full transition-all duration-300"
               >
                 Start a Project
                 <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
-              </a>
+              </Link>
             </motion.div>
           </div>
 

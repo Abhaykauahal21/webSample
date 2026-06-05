@@ -77,7 +77,7 @@ export function NetworkShowcase() {
   const words = headline.split(" ");
 
   return (
-    <section ref={containerRef} className="relative w-full bg-[#0C0C0C] py-24 flex flex-col items-center justify-center overflow-hidden">
+    <section ref={containerRef} className="relative w-full bg-[#0C0C0C] py-12 md:py-24 flex flex-col items-center justify-center overflow-hidden">
       <div className="relative flex items-center justify-center h-[220px] w-full max-w-4xl mx-auto mb-12">
         {isMobile ? (
           networkImages.map((src, i) => {

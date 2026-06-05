@@ -20,7 +20,7 @@ export default function Home() {
     <main className="bg-[#0C0C0C] min-h-screen text-foreground selection:bg-primary selection:text-primary-foreground">
       <Navbar />
       <Hero />
-      <div className='py-20 flex flex-col gap-4 overflow-hidden'>
+      <div className='py-10 md:py-20 flex flex-col gap-4 overflow-hidden'>
         <TextMarquee
           delay={500}
           baseVelocity={-3}
