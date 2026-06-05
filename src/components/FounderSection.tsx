@@ -239,7 +239,7 @@ export function FounderSection() {
             className="w-full h-full"
           >
             <img
-            src="/founderSection.webp"
+            src="/founderSection.png"
               alt="Founder Background"
               className="w-full h-full object-cover object-[95%_top] lg:object-right-top"
               loading="lazy"
