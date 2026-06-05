@@ -61,7 +61,7 @@ export function Footer() {
               </a>
               <p className="text-white/40 text-sm md:text-lg leading-tight max-w-[280px]">
                 <br />
-                Hyderabad, India, PINCODE 500001
+                Hyderabad, India, PINCODE 500055.
               </p>
             </div>
           </div>
