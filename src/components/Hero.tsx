@@ -15,6 +15,7 @@ const socialLinks = [
  
   { label: "Facebook", href: "https://www.facebook.com/people/Clarisolvetech/61590262391170/" },
   { label: "Instagram", href: "https://www.instagram.com/ClariSolve_Tech" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/115284051/" },
  
 ];
 
