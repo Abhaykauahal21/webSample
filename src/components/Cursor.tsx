@@ -19,33 +19,16 @@ export function Cursor() {
     };
     window.addEventListener("mousemove", move, { passive: true });
 
-    const checkHover = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (
-        target.tagName === "H1" ||
-        target.tagName === "H2" ||
-        target.tagName === "H3" ||
-        target.tagName === "H4" ||
-        target.tagName === "H5" ||
-        target.tagName === "H6" ||
-        target.tagName === "A" ||
-        target.tagName === "BUTTON" ||
-        target.closest("a") ||
-        target.closest("button") ||
-        target.closest("h1") ||
-        target.closest("h2") ||
-        target.closest("h3") ||
-        target.closest("h4") ||
-        target.closest("h5") ||
-        target.closest("h6")
-      ) {
-        setHovered(true);
-      } else {
-        setHovered(false);
-      }
+    const isHeading = (el: HTMLElement | null): boolean => {
+      if (!el) return false;
+      return /^H[1-6]$/.test(el.tagName) || !!el.closest("h1, h2, h3, h4, h5, h6");
     };
-    document.addEventListener("mouseover", checkHover);
 
+    const checkHover = (e: MouseEvent) => {
+      setHovered(isHeading(e.target as HTMLElement));
+    };
+
+    document.addEventListener("mouseover", checkHover);
     return () => {
       window.removeEventListener("mousemove", move);
       document.removeEventListener("mouseover", checkHover);
@@ -54,7 +37,6 @@ export function Cursor() {
 
   return (
     <>
-
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999]"
         style={{
@@ -73,7 +55,6 @@ export function Cursor() {
           transition: "width 0.35s ease, height 0.35s ease, box-shadow 0.35s ease",
         }}
       />
-
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9998] rounded-full"
         style={{

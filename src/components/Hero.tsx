@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -37,7 +38,7 @@ export function Hero() {
       <div className="flex-1 px-3 sm:px-4 md:px-6 pt-3 sm:pt-4 pb-0">
         <div className="relative rounded-2xl overflow-hidden w-full" style={{ background: "#1a1a1a", minHeight: "520px" }}>
           {/* Subtle noise texture */}
-          <div className="absolute inset-0 pointer-events-none opacity-[0.15] z-[1]" style={{ backgroundImage: `url("/noisy.webp?v=2")`, backgroundRepeat: "repeat", backgroundSize: "250px" }} />
+          <div className="absolute inset-0 pointer-events-none opacity-[0.08] z-[1]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundRepeat: "repeat", backgroundSize: "250px" }} />
 
           {/* Sparkle decorators */}
           <div className=" absolute -top-5 -left-3 z-20"><Sparkle /></div>
@@ -59,13 +60,13 @@ export function Hero() {
                   <div className="absolute inset-0 rounded-xl p-[1px]">
                     <div className="w-full h-full rounded-xl bg-[#1a1a1a]" />
                   </div>
-                  <img src="/founder.png" alt="Vijay Nadella — Founder & CEO of ClariSolve TECH" className="absolute inset-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)] object-cover object-top rounded-xl" loading="lazy" />
+                  <Image src="/founder.webp" alt="Vijay Nadella — Founder & CEO of ClariSolve TECH" fill sizes="200px" className="object-cover object-top rounded-xl" priority />
                 </motion.div>
 
                 {/* Logo + text */}
                 <div className="flex flex-col gap-3 md:gap-4 flex-1 min-w-0">
                   <div className="flex items-center gap-2 md:gap-3">
-                    <img src="/logo.png" alt="ClariSolve TECH Logo" className="h-8 md:h-10 w-auto object-contain shrink-0" loading="lazy" />
+                    <Image src="/logo.webp" alt="ClariSolve TECH Logo" width={40} height={40} className="h-8 md:h-10 w-auto object-contain shrink-0" />
                     <span className="text-white font-bold tracking-tight text-sm md:text-xl truncate">ClariSolve <span className="text-white/60 font-medium">TECH</span></span>
                   </div>
                   <div className="flex flex-col gap-2 md:gap-4">
@@ -106,7 +107,7 @@ export function Hero() {
                       <motion.span
                         initial={{ y: "100%" }}
                         animate={{ y: 0 }}
-                        transition={{ duration: 1, delay: 0.3 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.6, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
                         className="inline-block bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent"
                       >
                         {word}
@@ -117,7 +118,7 @@ export function Hero() {
               </motion.div>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="flex flex-wrap items-center gap-1.5 md:gap-2">
+                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="flex flex-wrap items-center gap-1.5 md:gap-2">
                   {socialLinks.map((s) => (
                     <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 md:px-4 py-1 rounded-full border border-white/20 text-white/80 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all text-xs md:text-sm font-medium">
                       {s.label}
@@ -126,7 +127,7 @@ export function Hero() {
                   ))}
                 </motion.div>
 
-                <motion.a href="tel:+918500222838" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.8 }} className="text-white/60 hover:text-white transition-colors text-sm font-mono tracking-widest whitespace-nowrap shrink-0">
+                <motion.a href="tel:+918500222838" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }} className="text-white/60 hover:text-white transition-colors text-sm font-mono tracking-widest whitespace-nowrap shrink-0">
                   [ (+91) 85002 22838]
                 </motion.a>
               </div>

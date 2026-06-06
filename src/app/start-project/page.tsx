@@ -151,9 +151,7 @@ export default function StartProject() {
         setSubmitError(err.error || "Something went wrong.");
       }
     } catch {
-      window.location.href = `mailto:vijaynadella@clarisolvetech.com?subject=Project Inquiry from ${form.name}&body=${encodeURIComponent(
-        `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nCompany: ${form.company}\nProject Type: ${form.projectType}\nBudget: ${form.budget}\nTimeline: ${form.timeline}\nDescription:\n${form.description}`
-      )}`;
+      setSubmitError("Unable to send. Please email us directly at vijaynadella@clarisolvetech.com");
     } finally {
       setLoading(false);
     }

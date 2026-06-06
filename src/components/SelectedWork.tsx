@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { useRef } from "react";
 
@@ -30,7 +31,7 @@ const projects = [
     category: "CORPORATE WEBSITE",
     description:
       "Premium industrial and abrasives manufacturing company website with modern branding and global presence.",
-    image: "/timely.png",
+    image: "/timely.webp",
     url: "https://timelygroup.vercel.app/",
     align: "left",
   },
@@ -40,7 +41,7 @@ const projects = [
     category: "NUTRITION E-COMMERCE",
     description:
       "Modern nutrition and wellness e-commerce platform designed to deliver a seamless shopping experience for health-conscious customers.",
-    image: "/kavyaboss.png",
+    image: "/kavyaboss.webp",
     url: "https://kavyaboss.vercel.app/",
     align: "right",
   },
@@ -50,7 +51,7 @@ const projects = [
     category: "CREATIVE DIGITAL AGENCY",
     description:
       "A modern digital agency website focused on brand strategy, web experiences, UI/UX design, and high-converting marketing solutions.",
-    image: "/digitalagency.png",
+    image: "/digitalagency.webp",
     url: "https://abhaywebagency.vercel.app/",
     align: "left",
   },
@@ -72,11 +73,12 @@ function ProjectCard({ project, index, scrollYProgress }: { project: typeof proj
       <div className={`w-full max-w-[900px] flex flex-col md:flex-row items-center gap-8 md:gap-12 ${isRight ? "md:flex-row-reverse" : ""}`}>
         {/* Image */}
         <div className="w-full relative rounded-2xl bg-white/[0.02]">
-          <img
+          <Image
             src={project.image}
             alt={project.title}
+            width={900}
+            height={600}
             className="w-full h-auto rounded-2xl"
-            loading="lazy"
           />
         </div>
 

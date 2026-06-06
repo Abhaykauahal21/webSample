@@ -12,7 +12,7 @@ function RevealWords({ text, className = "" }: { text: string; className?: strin
             initial={{ y: "100%" }}
             whileInView={{ y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.3, delay: i * 0.015, ease: [0.16, 1, 0.3, 1] }}
             className="inline-block"
           >
             {word}{i < words.length - 1 ? "\u00A0" : ""}
@@ -81,7 +81,7 @@ export function Process() {
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.3, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                     className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center text-sm md:text-base font-bold text-white/60 bg-[#0C0C0C] z-10 relative group-hover:border-[#ff4d00] group-hover:text-[#ff4d00] transition-colors duration-500"
                   >
                     {step.num}
@@ -93,7 +93,7 @@ export function Process() {
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.2 + 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.3, delay: index * 0.08 + 0.05, ease: [0.16, 1, 0.3, 1] }}
                     className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-[#ff4d00] transition-colors duration-500"
                   >
                     {step.title}
@@ -102,7 +102,7 @@ export function Process() {
                     initial={{ y: 20, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.2 + 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.3, delay: index * 0.08 + 0.1, ease: [0.16, 1, 0.3, 1] }}
                     className="text-white/50 text-sm md:text-base leading-relaxed"
                   >
                     <RevealWords text={step.desc} />

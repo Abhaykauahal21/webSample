@@ -1,14 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 const networkImages = [
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1000&auto=format&fit=crop",
+  "/1c.webp",
+  "/2c.webp",
+  "/AbhayPhoto.webp",
+  "/4c.webp",
+  "/5c.webp",
 ];
 
 function NetworkImage({ src, index, total, scrollYProgress }: { src: string; index: number; total: number; scrollYProgress: MotionValue<number> }) {
@@ -36,7 +37,7 @@ function NetworkImage({ src, index, total, scrollYProgress }: { src: string; ind
         scale,
       }}
     >
-      <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
+      <Image src={src} alt="" width={140} height={140} className="w-full h-full object-cover" />
     </motion.div>
   );
 }
@@ -97,7 +98,7 @@ export function NetworkShowcase() {
                   zIndex: networkImages.length - Math.abs(offset),
                 }}
               >
-                <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
+                <Image src={src} alt="" width={80} height={80} className="w-full h-full object-cover" />
               </div>
             );
           })

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -40,11 +41,13 @@ export function Navbar() {
         <div className="max-w-[1400px] mx-auto px-6 h-14 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0" data-testid="link-logo">
-            <img 
-              src="/logo.png" 
+            <Image 
+              src="/logo.webp" 
               alt="ClariSolve TECH Logo" 
+              width={80}
+              height={80}
               className="h-16 sm:h-20 mt-5 w-auto object-contain"
-              loading="lazy"
+              priority
             />
           </Link>
 

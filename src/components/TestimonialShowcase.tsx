@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -145,8 +146,8 @@ function MobileTestimonialShowcase() {
                     &ldquo;{t.content}&rdquo;
                   </p>
                   <div className="flex items-center gap-3 mt-auto">
-                    <div className="w-10 h-10 rounded-xl overflow-hidden">
-<img src={t.avatar} alt={t.author} className="w-full h-full object-cover" loading="lazy" />
+                    <div className="w-10 h-10 rounded-xl overflow-hidden relative">
+<Image src={t.avatar} alt={t.author} fill sizes="40px" className="object-cover" />
                     </div>
                     <div>
                       <h4 className="text-white font-bold text-sm leading-none mb-1">{t.author}</h4>
@@ -342,8 +343,8 @@ export function TestimonialShowcase() {
               </p>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
-                  <img src={t.avatar} alt={t.author} className="w-full h-full object-cover" loading="lazy" />
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 relative">
+                  <Image src={t.avatar} alt={t.author} fill sizes="56px" className="object-cover" />
                 </div>
                 <div>
                   <h4 className="text-white font-bold text-lg leading-none mb-1">{t.author}</h4>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
@@ -40,7 +41,7 @@ function MobileFounderSection() {
     <section className="relative w-full bg-[#0C0C0C] py-12 px-4 overflow-hidden">
       <div className="max-w-[1400px] mx-auto bg-[#141414] rounded-[32px] overflow-hidden border border-white/5 shadow-2xl relative">
         {/* Subtle grain */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.08] z-0" style={{ backgroundImage: `url("/noisy.gif?v=2")`, backgroundRepeat: "repeat", backgroundSize: "200px" }} />
+        <div className="absolute inset-0 pointer-events-none opacity-[0.08] z-0" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundRepeat: "repeat", backgroundSize: "200px" }} />
 
         {/* Floating particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -61,16 +62,17 @@ function MobileFounderSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full overflow-hidden"
+          className="relative w-full aspect-[4/5] overflow-hidden"
         >
           {/* Soft glow behind image */}
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[250px] h-[250px] bg-[#ff8c00]/15 blur-[100px] rounded-full z-0" />
 
-          <img
-            src="/founderSection.png"
+          <Image
+            src="/founderSection.webp"
             alt="Vijay Nadella - Founder & CEO"
-            className="w-full h-full object-cover object-[50%_15%]"
-            loading="lazy"
+            fill
+            sizes="(max-width: 1400px) 100vw, 800px"
+            className="object-cover object-[50%_15%]"
           />
 
           {/* Dark gradient overlay */}
@@ -133,7 +135,7 @@ function MobileFounderSection() {
                   initial={{ opacity: 0, y: 8 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.4 + i * 0.03 }}
+                  transition={{ duration: 0.2, delay: 0.1 + i * 0.015 }}
                   className="inline-block mr-[0.3em]"
                 >
                   {word}
@@ -147,7 +149,7 @@ function MobileFounderSection() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.7 }}
+            transition={{ duration: 0.4, delay: 0.25 }}
             className="flex items-center gap-3 mb-8 pb-6 border-b border-white/5"
           >
             <div className="w-10 h-10 rounded-full bg-[#ff8c00]/10 flex items-center justify-center border border-[#ff8c00]/20">
@@ -164,7 +166,7 @@ function MobileFounderSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
           >
             <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory -mx-6 px-6 pb-2 scrollbar-hide">
               {stats.map((stat, i) => (
@@ -173,7 +175,7 @@ function MobileFounderSection() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.9 + i * 0.15 }}
+                  transition={{ duration: 0.3, delay: 0.35 + i * 0.08 }}
                   className="snap-start shrink-0 w-[160px] bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 backdrop-blur-xl"
                 >
                   <span className="text-[clamp(1.5rem,5vw,2rem)] font-bold text-[#ff8c00] leading-none block mb-2">
@@ -192,7 +194,7 @@ function MobileFounderSection() {
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 1.2 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
             className="h-[1px] bg-gradient-to-r from-[#ff8c00]/40 via-transparent to-transparent mt-6 origin-left"
           />
         </div>
@@ -238,11 +240,12 @@ export function FounderSection() {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
             className="w-full h-full"
           >
-            <img
-            src="/founderSection.png"
+            <Image
+              src="/founderSection.webp"
               alt=""
-              className="w-full h-full object-cover object-[95%_top] lg:object-right-top"
-              loading="lazy"
+              fill
+              sizes="(max-width: 1400px) 100vw, 1400px"
+              className="object-cover object-[95%_top] lg:object-right-top"
             />
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#0C0C0C] via-[#0C0C0C]/60 to-transparent z-10 hidden lg:block" />

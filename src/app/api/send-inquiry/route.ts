@@ -8,12 +8,24 @@ const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KE
 const FROM_EMAIL = process.env.FROM_EMAIL || "onboarding@resend.dev";
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "vijaynadella@clarisolvetech.com";
 
-const rateLimitMap = new Map<string, { count: number; reset: number }>();
 const RATE_LIMIT = 3;
 const RATE_WINDOW = 60_000;
+const CLEANUP_INTERVAL = 300_000;
+
+const rateLimitMap = new Map<string, { count: number; reset: number }>();
+
+let lastCleanup = Date.now();
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
+
+  if (now - lastCleanup > CLEANUP_INTERVAL) {
+    for (const [key, entry] of rateLimitMap) {
+      if (now > entry.reset) rateLimitMap.delete(key);
+    }
+    lastCleanup = now;
+  }
+
   const entry = rateLimitMap.get(ip);
   if (!entry || now > entry.reset) {
     rateLimitMap.set(ip, { count: 1, reset: now + RATE_WINDOW });

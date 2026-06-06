@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName,
     title: `${siteName} | Technology Solutions`,
     description: "Technology solutions that help businesses grow — websites, software, AI automation, and more. Founded by Vijay Nadella.",
-    images: [{ url: "/opengraph.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/logo.webp", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",

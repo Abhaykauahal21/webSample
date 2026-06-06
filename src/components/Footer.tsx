@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 
@@ -40,11 +41,12 @@ export function Footer() {
           {/* Brand & Info */}
           <div className="flex flex-col gap-6 md:gap-10">
             <div className="flex items-center gap-3">
-              <img 
-                src="/logo.png" 
+              <Image 
+                src="/logo.webp" 
                 alt="ClariSolve TECH Logo" 
+                width={40}
+                height={40}
                 className="h-8 md:h-10 w-auto object-contain"
-                loading="lazy"
               />
               <span className="text-white text-xl md:text-2xl font-bold tracking-tight">ClariSolve <span className="text-white/60 font-medium text-lg md:text-xl">TECH</span></span>
             </div>

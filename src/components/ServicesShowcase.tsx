@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+import { MobileServicesShowcase } from "./MobileServicesShowcase";
 
 const services = [
   {
@@ -122,7 +124,12 @@ export function ServicesShowcase() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative bg-[#0C0C0C] overflow-hidden min-h-screen">
+    <>
+
+       <MobileServicesShowcase />
+
+
+      <div ref={containerRef} className="relative bg-[#0C0C0C] overflow-hidden min-h-screen hidden md:block">
       {services.map((service, i) => (
         <div
           key={service.id}
@@ -171,11 +178,12 @@ export function ServicesShowcase() {
           <div className="relative z-10 w-full lg:w-[35%] aspect-[4/5] lg:aspect-auto lg:h-[70vh] flex items-center justify-center mt-12 lg:mt-0">
             <div className="service-image-card relative w-full h-full rounded-2xl overflow-hidden border border-white/10 backdrop-blur-3xl group perspective-1000">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
-              <img
+              <Image
                 src={service.image}
                 alt={service.title}
-                className="service-image w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
+                fill
+                sizes="(max-width: 1024px) 100vw, 35vw"
+                className="service-image object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute bottom-8 left-8 z-20">
                 <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-black transform group-hover:scale-110 group-hover:rotate-45 transition-all duration-500 cursor-pointer">
@@ -189,5 +197,7 @@ export function ServicesShowcase() {
         </div>
       ))}
     </div>
+    </>
+    
   );
 }
