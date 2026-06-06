@@ -53,7 +53,6 @@ function ProjectCard({ project, index, scrollYProgress }: { project: typeof proj
   const rangeEnd = (index + 1) * 0.2;
 
   const y = useTransform(scrollYProgress, [rangeStart, rangeEnd], [20, -20]);
-  const imageY = useTransform(scrollYProgress, [rangeStart - 0.1, rangeEnd + 0.1], ["-8%", "8%"]);
 
   return (
     <motion.div
@@ -62,12 +61,11 @@ function ProjectCard({ project, index, scrollYProgress }: { project: typeof proj
     >
       <div className={`w-full max-w-[900px] flex flex-col md:flex-row items-center gap-8 md:gap-12 ${isRight ? "md:flex-row-reverse" : ""}`}>
         {/* Image */}
-        <div className="w-full relative overflow-hidden rounded-2xl">
-          <motion.img
+        <div className="w-full relative rounded-2xl bg-white/[0.02]">
+          <img
             src={project.image}
             alt={project.title}
-            style={{ y: imageY }}
-            className="w-full h-auto object-contain"
+            className="w-full h-auto rounded-2xl"
             loading="lazy"
           />
         </div>
