@@ -5,6 +5,16 @@ import { useRef } from "react";
 
 const projects = [
   {
+    id: "dream10",
+    title: "Dream10",
+    category: "FANTASY QUIZ & GAMING PLATFORM",
+    description:
+      "An immersive fantasy quiz platform featuring real-time competitions, global leaderboards, multiplayer challenges, and engaging knowledge-based gameplay for fantasy enthusiasts worldwide.",
+    image: "/dream10.webp",
+    url: "https://dream10.in/",
+    align: "left",
+  },
+  {
     id: "cashbackwallah",
     title: "Cashback Wallah",
     category: "LOGISTICS & SHIPPING PLATFORM",
@@ -12,7 +22,7 @@ const projects = [
       "An all-in-one logistics platform enabling businesses to access multiple courier partners, optimize shipping costs, automate order fulfillment, and manage deliveries through a unified dashboard.",
     image: "/cashbackwallah.webp",
     url: "https://cashbackwallah.com/",
-    align: "left",
+    align: "right",
   },
   {
     id: "timely-group",
@@ -22,7 +32,7 @@ const projects = [
       "Premium industrial and abrasives manufacturing company website with modern branding and global presence.",
     image: "/timely.png",
     url: "https://timelygroup.vercel.app/",
-    align: "right",
+    align: "left",
   },
   {
     id: "kavyaboss",
@@ -32,7 +42,7 @@ const projects = [
       "Modern nutrition and wellness e-commerce platform designed to deliver a seamless shopping experience for health-conscious customers.",
     image: "/kavyaboss.png",
     url: "https://kavyaboss.vercel.app/",
-    align: "left",
+    align: "right",
   },
   {
     id: "digital-agency",
@@ -42,7 +52,7 @@ const projects = [
       "A modern digital agency website focused on brand strategy, web experiences, UI/UX design, and high-converting marketing solutions.",
     image: "/digitalagency.png",
     url: "https://abhaywebagency.vercel.app/",
-    align: "right",
+    align: "left",
   },
 ];
 
