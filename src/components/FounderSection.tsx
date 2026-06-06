@@ -61,7 +61,7 @@ function MobileFounderSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative h-[320px] overflow-hidden"
+          className="relative w-full overflow-hidden"
         >
           {/* Soft glow behind image */}
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[250px] h-[250px] bg-[#ff8c00]/15 blur-[100px] rounded-full z-0" />
