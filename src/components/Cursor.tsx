@@ -54,9 +54,6 @@ export function Cursor() {
 
   return (
     <>
-      <style>{`
-        * { cursor: none !important; }
-      `}</style>
 
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[9999]"

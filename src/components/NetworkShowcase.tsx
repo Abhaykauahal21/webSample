@@ -36,7 +36,7 @@ function NetworkImage({ src, index, total, scrollYProgress }: { src: string; ind
         scale,
       }}
     >
-      <img src={src} alt={`Network member ${index}`} className="w-full h-full object-cover" loading="lazy" />
+      <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
     </motion.div>
   );
 }
@@ -97,7 +97,7 @@ export function NetworkShowcase() {
                   zIndex: networkImages.length - Math.abs(offset),
                 }}
               >
-                <img src={src} alt={`Network member ${i}`} className="w-full h-full object-cover" loading="lazy" />
+                <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
               </div>
             );
           })

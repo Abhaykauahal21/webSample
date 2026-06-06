@@ -240,7 +240,7 @@ export function FounderSection() {
           >
             <img
             src="/founderSection.png"
-              alt="Founder Background"
+              alt=""
               className="w-full h-full object-cover object-[95%_top] lg:object-right-top"
               loading="lazy"
             />

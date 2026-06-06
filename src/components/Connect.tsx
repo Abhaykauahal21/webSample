@@ -193,35 +193,39 @@ export function Connect() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex items-center gap-4 mb-8"
+              className="flex flex-col sm:flex-row gap-4 mb-8"
             >
-              <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                <Mail size={16} className="text-white/60" />
-              </div>
-              <div>
-                <span className="text-white/40 text-xs uppercase tracking-[0.15em]">Email</span>
-                <div className="flex items-center gap-2">
-                  <a href="mailto:vijaynadella@clarisolvetech.com?subject=Inquiry" className="text-white/80 text-sm hover:text-primary transition-colors">
-                    vijaynadella@clarisolvetech.com
-                  </a>
-                  <button
-                    onClick={() => navigator.clipboard.writeText("vijaynadella@clarisolvetech.com")}
-                    className="text-white/30 hover:text-white/60 transition-colors text-xs"
-                    title="Copy email"
-                  >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                    </svg>
-                  </button>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                  <Mail size={16} className="text-white/60" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-white/40 text-xs uppercase tracking-[0.15em]">Email</span>
+                  <div className="flex items-center gap-2">
+                    <a href="mailto:vijaynadella@clarisolvetech.com?subject=Inquiry" className="text-white/80 text-sm hover:text-primary transition-colors break-all">
+                      vijaynadella@clarisolvetech.com
+                    </a>
+                    <button
+                      onClick={() => navigator.clipboard.writeText("vijaynadella@clarisolvetech.com")}
+                      className="text-white/30 hover:text-white/60 transition-colors text-xs shrink-0"
+                      title="Copy email"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div className="w-px h-10 bg-white/5 mx-2" />
-              <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                <MapPin size={16} className="text-white/60" />
-              </div>
-              <div>
-                <span className="text-white/40 text-xs uppercase tracking-[0.15em]">Location</span>
-                <p className="text-white/80 text-sm">Hyderabad, India</p>
+              <div className="w-px h-10 bg-white/5 mx-2 self-center hidden sm:block shrink-0" />
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                  <MapPin size={16} className="text-white/60" />
+                </div>
+                <div>
+                  <span className="text-white/40 text-xs uppercase tracking-[0.15em]">Location</span>
+                  <p className="text-white/80 text-sm">Hyderabad, India</p>
+                </div>
               </div>
             </motion.div>
 

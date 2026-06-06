@@ -59,13 +59,13 @@ export function Hero() {
                   <div className="absolute inset-0 rounded-xl p-[1px]">
                     <div className="w-full h-full rounded-xl bg-[#1a1a1a]" />
                   </div>
-                  <img src="/founder.png" alt="Creative professional" className="absolute inset-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)] object-cover object-top rounded-xl" loading="lazy" />
+                  <img src="/founder.png" alt="Vijay Nadella — Founder & CEO of ClariSolve TECH" className="absolute inset-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)] object-cover object-top rounded-xl" loading="lazy" />
                 </motion.div>
 
                 {/* Logo + text */}
                 <div className="flex flex-col gap-3 md:gap-4 flex-1 min-w-0">
                   <div className="flex items-center gap-2 md:gap-3">
-                    <img src="https://clarisolvetech.lovable.app/assets/clarisolve-logo-B7oqDF0B.png" alt="ClariSolve TECH Logo" className="h-8 md:h-10 w-auto object-contain shrink-0" loading="lazy" />
+                    <img src="/logo.png" alt="ClariSolve TECH Logo" className="h-8 md:h-10 w-auto object-contain shrink-0" loading="lazy" />
                     <span className="text-white font-bold tracking-tight text-sm md:text-xl truncate">ClariSolve <span className="text-white/60 font-medium">TECH</span></span>
                   </div>
                   <div className="flex flex-col gap-2 md:gap-4">
@@ -119,7 +119,7 @@ export function Hero() {
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="flex flex-wrap items-center gap-1.5 md:gap-2">
                   {socialLinks.map((s) => (
-                    <a key={s.label} href={s.href} className="flex items-center gap-1 px-3 md:px-4 py-1 rounded-full border border-white/20 text-white/80 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all text-xs md:text-sm font-medium">
+                    <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 md:px-4 py-1 rounded-full border border-white/20 text-white/80 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all text-xs md:text-sm font-medium">
                       {s.label}
                       <span className="text-[10px] opacity-60">↑</span>
                     </a>

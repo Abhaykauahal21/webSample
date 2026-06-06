@@ -1,6 +1,34 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  reactStrictMode: true,
+  poweredByHeader: false,
+  compress: true,
+
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "plus.unsplash.com" },
+      { protocol: "https", hostname: "media.istockphoto.com" },
+      { protocol: "https", hostname: "btech.id" },
+      { protocol: "https", hostname: "tse2.mm.bing.net" },
+      { protocol: "https", hostname: "clarisolvetech.lovable.app" },
+    ],
+  },
+
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-XSS-Protection", value: "1; mode=block" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

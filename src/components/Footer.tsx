@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 
 const socialLinks = [
   { label: "Facebook", href: "https://www.facebook.com/people/Clarisolvetech/61590262391170/" },
@@ -11,17 +11,17 @@ const socialLinks = [
 
 const navLinks1 = [
   { label: "Home", href: "/" },
-  { label: "About", href: "#" },
-  { label: "Works", href: "#" },
-  { label: "Blog", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Portfolio", href: "#work" },
+  { label: "Careers", href: "/career" },
+  { label: "Start Project", href: "/start-project" },
+  { label: "Contact", href: "#connect" },
 ];
 
 const navLinks2 = [
-  { label: "Shop", href: "#" },
-  { label: "Pricing", href: "#" },
-  { label: "Cart", href: "#" },
-  { label: "Checkout", href: "#" },
+  { label: "Web Development", href: "#services" },
+  { label: "UI/UX Design", href: "#services" },
+  { label: "AI Automation", href: "#services" },
+  { label: "Partners", href: "/partners" },
 ];
 
 const capabilities = [
@@ -41,7 +41,7 @@ export function Footer() {
           <div className="flex flex-col gap-6 md:gap-10">
             <div className="flex items-center gap-3">
               <img 
-                src="https://clarisolvetech.lovable.app/assets/clarisolve-logo-B7oqDF0B.png" 
+                src="/logo.png" 
                 alt="ClariSolve TECH Logo" 
                 className="h-8 md:h-10 w-auto object-contain"
                 loading="lazy"
@@ -50,15 +50,17 @@ export function Footer() {
             </div>
 
             <div className="flex flex-col gap-3 md:gap-4">
-              <a href="tel:+91 85002 22838" className="text-white/60 hover:text-white transition-colors text-base md:text-xl">
+              <a href="tel:+91 85002 22838" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm md:text-xl">
+                <Phone size={16} className="shrink-0" />
                 +91 85002 22838
               </a>
-              <a href="mailto:vijaynadella@clarisolvetech.com?subject=Inquiry" className="text-white/60 hover:text-white transition-colors text-base md:text-xl font-medium">
+              <a href="mailto:vijaynadella@clarisolvetech.com?subject=Inquiry" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm md:text-xl font-medium break-all">
+                <Mail size={16} className="shrink-0" />
                 vijaynadella@clarisolvetech.com
               </a>
               <button
                 onClick={() => navigator.clipboard.writeText("vijaynadella@clarisolvetech.com")}
-                className="text-white/30 hover:text-white/60 transition-colors text-xs inline-flex items-center gap-1"
+                className="text-white/30 hover:text-white/60 transition-colors text-xs inline-flex items-center gap-1 ml-7"
                 title="Copy email"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -66,8 +68,8 @@ export function Footer() {
                 </svg>
                 <span className="text-[10px]">Copy</span>
               </button>
-              <p className="text-white/40 text-sm md:text-lg leading-tight max-w-[280px]">
-                <br />
+              <p className="flex items-start gap-2 text-white/40 text-sm md:text-lg leading-tight max-w-[280px] break-words">
+                <MapPin size={16} className="shrink-0 mt-1" />
                 Hyderabad, India, PINCODE 500055.
               </p>
             </div>
@@ -103,6 +105,8 @@ export function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-between gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full border border-white/10 text-white/80 hover:text-white hover:bg-white/5 transition-all text-xs md:text-sm group"
                 >
                   {social.label}

@@ -63,7 +63,7 @@ const loopedPartners = [...partners, ...partners, ...partners];
 function BlobButton() {
   return (
     <motion.a
-      href="#contact"
+      href="/start-project"
       className="relative flex flex-col items-center justify-center w-[150px] h-[150px] shrink-0 cursor-pointer select-none"
       whileHover={{ scale: 1.06 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}

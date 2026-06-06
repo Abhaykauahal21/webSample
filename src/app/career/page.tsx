@@ -109,9 +109,12 @@ export default function Career() {
                   </div>
                 </div>
                 <div className="shrink-0">
-                  <button className="w-full md:w-auto px-6 py-3 rounded-full bg-white/10 text-white font-medium hover:bg-white hover:text-black transition-all duration-500 text-sm border border-white/5">
+                  <a
+                    href={`mailto:vijaynadella@clarisolvetech.com?subject=Application for ${encodeURIComponent(job.title)}`}
+                    className="inline-block w-full md:w-auto px-6 py-3 rounded-full bg-white/10 text-white font-medium hover:bg-white hover:text-black transition-all duration-500 text-sm border border-white/5 text-center"
+                  >
                     Apply Now
-                  </button>
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -129,9 +132,12 @@ export default function Career() {
           <p className="text-white/50 text-sm md:text-base mb-6 max-w-md mx-auto">
             We&apos;re always looking for talented people. Send us your resume and we&apos;ll keep you in mind.
           </p>
-          <button className="px-8 py-3 rounded-full bg-white/10 text-white font-medium hover:bg-white hover:text-black transition-all duration-500 text-sm border border-white/5">
+          <a
+            href="mailto:vijaynadella@clarisolvetech.com?subject=Open Application - ClariSolve TECH"
+            className="inline-block px-8 py-3 rounded-full bg-white/10 text-white font-medium hover:bg-white hover:text-black transition-all duration-500 text-sm border border-white/5"
+          >
             Send Open Application
-          </button>
+          </a>
         </motion.div>
       </div>
     </div>

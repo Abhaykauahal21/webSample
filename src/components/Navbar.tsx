@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Search, Sun, Grid2x2, ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -65,13 +65,6 @@ export function Navbar() {
 
           {/* Right Icons */}
           <div className="flex items-center gap-1">
-            
-            <button className="hidden sm:flex p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-theme">
-              {/* <Sun size={18} /> */}
-            </button>
-            <button className="hidden sm:flex p-2 text-white/70 hover:text-white transition-colors rounded-md hover:bg-white/5" data-testid="button-grid">
-              <Grid2x2 size={18} />
-            </button>
             <button
               className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}

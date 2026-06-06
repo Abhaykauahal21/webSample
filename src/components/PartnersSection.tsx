@@ -49,7 +49,7 @@ const partners = [
     ),
   },
   {
-    name: "LOQO",
+    name: "LOGO",
     icon: null,
     isWordmark: true,
   },

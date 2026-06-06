@@ -99,7 +99,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Inquiry error:", error);
     return NextResponse.json(
-      { error: "Something went wrong. Please try emailing us directly at vijaynadella@clarisolvetech.com" },
+      { error: "Something went wrong. Please try again later." },
       { status: 500 }
     );
   }
