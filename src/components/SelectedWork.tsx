@@ -5,6 +5,16 @@ import { useRef } from "react";
 
 const projects = [
   {
+    id: "cashbackwallah",
+    title: "Cashback Wallah",
+    category: "LOGISTICS & SHIPPING PLATFORM",
+    description:
+      "An all-in-one logistics platform enabling businesses to access multiple courier partners, optimize shipping costs, automate order fulfillment, and manage deliveries through a unified dashboard.",
+    image: "/cashbackwallah.webp",
+    url: "https://cashbackwallah.com/",
+    align: "left",
+  },
+  {
     id: "timely-group",
     title: "Timely Group",
     category: "CORPORATE WEBSITE",
@@ -12,7 +22,7 @@ const projects = [
       "Premium industrial and abrasives manufacturing company website with modern branding and global presence.",
     image: "/timely.png",
     url: "https://timelygroup.vercel.app/",
-    align: "left",
+    align: "right",
   },
   {
     id: "kavyaboss",
@@ -22,7 +32,7 @@ const projects = [
       "Modern nutrition and wellness e-commerce platform designed to deliver a seamless shopping experience for health-conscious customers.",
     image: "/kavyaboss.png",
     url: "https://kavyaboss.vercel.app/",
-    align: "right",
+    align: "left",
   },
   {
     id: "digital-agency",
@@ -32,7 +42,7 @@ const projects = [
       "A modern digital agency website focused on brand strategy, web experiences, UI/UX design, and high-converting marketing solutions.",
     image: "/digitalagency.png",
     url: "https://abhaywebagency.vercel.app/",
-    align: "left",
+    align: "right",
   },
 ];
 
@@ -52,18 +62,18 @@ function ProjectCard({ project, index, scrollYProgress }: { project: typeof proj
     >
       <div className={`w-full max-w-[900px] flex flex-col md:flex-row items-center gap-8 md:gap-12 ${isRight ? "md:flex-row-reverse" : ""}`}>
         {/* Image */}
-        <div className="w-full md:w-1/2 relative aspect-[4/5] overflow-hidden rounded-2xl">
+        <div className="w-full relative overflow-hidden rounded-2xl">
           <motion.img
             src={project.image}
             alt={project.title}
             style={{ y: imageY }}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="w-full h-auto object-contain"
             loading="lazy"
           />
         </div>
 
         {/* Text Content */}
-        <div className="w-full md:w-1/2">
+        <div className="w-full">
           <span className="text-[10px] font-bold tracking-[0.2em] text-white/50 uppercase border border-white/20 px-3 py-1 rounded-full">
             {project.category}
           </span>
