@@ -72,13 +72,7 @@ export function ServicesShowcase() {
         start: "top top",
         end: `+=${(sections.length - 1) * 100}%`,
         pin: true,
-        scrub: 0.5,
-        snap: {
-          snapTo: 1 / (sections.length - 1),
-          duration: 0.4,
-          ease: "power2.out",
-          directional: true,
-        },
+        scrub: 1,
       },
     });
 
@@ -113,84 +107,13 @@ export function ServicesShowcase() {
         gsap.set(section, { zIndex: 0, yPercent: 0, opacity: 1, visibility: "visible" });
       }
 
-      // Inner content animations
-      const innerTl = gsap.timeline();
-      const delayOffset = index === 0 ? 0 : 0.2; // First slide: no delay
-      
-      if (title) {
-        if (index === 0) {
-          gsap.set(title, { y: 0, opacity: 1 });
-        } else {
-          innerTl.fromTo(title, 
-            { y: 100, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, ease: "power4.out" },
-            delayOffset
-          );
-        }
-      }
-
-      if (desc) {
-        if (index === 0) {
-          gsap.set(desc, { y: 0, opacity: 1 });
-        } else {
-          innerTl.fromTo(desc,
-            { y: 50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
-            delayOffset + 0.2
-          );
-        }
-      }
-
-      if (meta) {
-        if (index === 0) {
-          gsap.set(meta.children, { y: 0, opacity: 1 });
-        } else {
-          innerTl.fromTo(meta.children,
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power2.out" },
-            delayOffset + 0.4
-          );
-        }
-      }
-
-      if (num) {
-        gsap.set(num, { opacity: 0 });
-      }
-
-      if (imageCard) {
-        if (index === 0) {
-          gsap.set(imageCard, { scale: 1, opacity: 1, rotateY: 0 });
-        } else {
-          innerTl.fromTo(imageCard,
-            { scale: 1.2, opacity: 0, rotateY: 15 },
-            { scale: 1, opacity: 1, rotateY: 0, duration: 1.2, ease: "expo.out" },
-            delayOffset
-          );
-        }
-      }
-
-      if (image) {
-        if (index === 0) {
-          gsap.set(image, { scale: 1 });
-        } else {
-          innerTl.fromTo(image,
-            { scale: 1.3 },
-            { scale: 1, duration: 1.5, ease: "power2.out" },
-            0
-          );
-        }
-      }
-
-      // Add inner timeline to master at the right point
-      if (index !== 0) {
-        masterTl.add(innerTl, index);
-      } else {
-        // Subtle parallax for first section so it has scroll feedback
-        const img = section.querySelector(".service-image");
-        if (img) {
-          masterTl.fromTo(img, { scale: 1 }, { scale: 1.08, duration: 1, ease: "none" }, 0);
-        }
-      }
+      // Show all content immediately for instant readability
+      if (title) gsap.set(title, { y: 0, opacity: 1 });
+      if (desc) gsap.set(desc, { y: 0, opacity: 1 });
+      if (meta) gsap.set(meta.children, { y: 0, opacity: 1 });
+      if (num) gsap.set(num, { opacity: 0 });
+      if (imageCard) gsap.set(imageCard, { scale: 1, opacity: 1, rotateY: 0 });
+      if (image) gsap.set(image, { scale: 1 });
     });
 
     return () => {
