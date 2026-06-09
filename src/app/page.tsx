@@ -9,6 +9,7 @@ import { Process } from "@/components/Process";
 import { TestimonialShowcase } from "@/components/TestimonialShowcase";
 import { NetworkShowcase } from "@/components/NetworkShowcase";
 import { Connect } from "@/components/Connect";
+
 import { Footer } from "@/components/Footer";
 import { LenisProvider } from "@/components/LenisProvider";
 
@@ -42,6 +43,7 @@ export default function Home() {
         <TestimonialShowcase />
         <NetworkShowcase />
         <Connect />
+       
         <Footer />
       </main>
     </LenisProvider>

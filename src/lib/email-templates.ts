@@ -5,7 +5,7 @@ interface InquiryData {
   company?: string;
   businessStage?: string;
   websiteUrl?: string;
-  projectType: string;
+  projectType?: string;
   projectGoal?: string;
   budget?: string;
   timeline?: string;
@@ -82,9 +82,9 @@ function footerHtml(): string {
 export function adminEmailTemplate(data: InquiryData): string {
   return wrapHtml("New Inquiry", `
     <div class="header">
-      <div class="header-tag">New Project Inquiry</div>
+      <div class="header-tag">New Contact Message</div>
       <h1 style="margin-top:16px;">${data.name}</h1>
-      <p class="sub">${data.projectType} &mdash; ${data.budget || "Budget not specified"}</p>
+      <p class="sub">New contact form submission</p>
     </div>
     <div class="body">
       <table>
@@ -92,21 +92,9 @@ export function adminEmailTemplate(data: InquiryData): string {
         ${fieldRow("Name", data.name)}
         ${fieldRow("Email", data.email)}
         ${fieldRow("Phone", data.phone)}
-        ${fieldRow("Preferred Contact", data.preferredContact)}
-        ${fieldRow("Best Time", data.bestTime)}
-        <tr><th colspan="2" style="padding-top:20px;">Company</th></tr>
-        ${fieldRow("Company", data.company)}
-        ${fieldRow("Business Stage", data.businessStage)}
-        ${fieldRow("Website", data.websiteUrl ? `<a href="${data.websiteUrl}" style="color:#ff8c00;">${data.websiteUrl}</a>` : "")}
-        ${fieldRow("Heard Via", data.hearAbout)}
-        <tr><th colspan="2" style="padding-top:20px;">Project</th></tr>
-        ${fieldRow("Type", data.projectType)}
-        ${fieldRow("Goal", data.projectGoal)}
-        ${fieldRow("Budget", data.budget)}
-        ${fieldRow("Timeline", data.timeline)}
       </table>
       <div class="description-box">
-        <h3>Project Description</h3>
+        <h3>Message</h3>
         <p>${data.description}</p>
       </div>
       <div class="divider"></div>
@@ -126,9 +114,9 @@ export function adminEmailTemplate(data: InquiryData): string {
 export function autoReplyEmailTemplate(data: InquiryData): string {
   return wrapHtml("Thank you for your inquiry", `
     <div class="header">
-      <div class="header-tag">Inquiry Received</div>
+      <div class="header-tag">Message Received</div>
       <h1>Thanks, ${data.name.split(" ")[0]}!</h1>
-      <p class="sub">We've received your project inquiry and will review it shortly.</p>
+      <p class="sub">We've received your message and will get back to you shortly.</p>
     </div>
     <div class="body">
       <h2>What happens next?</h2>
@@ -136,28 +124,21 @@ export function autoReplyEmailTemplate(data: InquiryData): string {
         <div class="step">
           <div class="step-num">1</div>
           <strong>Review</strong>
-          <span>Vijay reviews your requirements within 24 hours</span>
+          <span>Vijay reviews your message within 24 hours</span>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <strong>Follow-up</strong>
-          <span>We reach out via your preferred contact method</span>
+          <span>We reach out via email or phone</span>
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <strong>Proposal</strong>
-          <span>Receive a tailored solution and timeline</span>
+          <strong>Response</strong>
+          <span>Receive a personalized response</span>
         </div>
       </div>
 
       <div class="divider"></div>
-
-      <h2>Submission Summary</h2>
-      <table>
-        <tr><td class="label">Project</td><td class="value">${data.projectType}</td></tr>
-        <tr><td class="label">Budget</td><td class="value">${data.budget || "Not specified"}</td></tr>
-        <tr><td class="label">Timeline</td><td class="value">${data.timeline || "Not specified"}</td></tr>
-      </table>
 
       <div style="text-align:center;">
         <a href="https://cal.com/vijaynadella" class="cta">Schedule a Call</a>

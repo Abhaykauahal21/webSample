@@ -85,7 +85,7 @@ export async function POST(request: Request) {
         resend.emails.send({
           from: FROM_EMAIL,
           to: ADMIN_EMAIL,
-          subject: `New Project Inquiry from ${data.name} — ${data.projectType}`,
+          subject: `New Contact Message from ${data.name}`,
           html: adminEmailTemplate(data),
         })
       );

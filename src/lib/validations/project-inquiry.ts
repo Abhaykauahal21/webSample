@@ -7,14 +7,11 @@ export const projectInquirySchema = z.object({
   company: z.string().max(200).optional().or(z.literal("")),
   businessStage: z.string().optional().or(z.literal("")),
   websiteUrl: z.string().url("Please enter a valid URL").optional().or(z.literal("")),
-  projectType: z.string().min(1, "Please select a project type"),
+  projectType: z.string().optional().or(z.literal("")),
   projectGoal: z.string().optional().or(z.literal("")),
   budget: z.string().optional().or(z.literal("")),
   timeline: z.string().optional().or(z.literal("")),
-  description: z
-    .string()
-    .min(20, "Please provide at least 20 characters describing your project")
-    .max(5000, "Description must be under 5000 characters"),
+  description: z.string().min(1, "Please provide a message").max(5000),
   preferredContact: z.string().optional().or(z.literal("")),
   bestTime: z.string().optional().or(z.literal("")),
   hearAbout: z.string().optional().or(z.literal("")),

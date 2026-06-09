@@ -54,7 +54,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: "/favicon.webp",
+    icon: [{ url: "/ClariSolveFavicon.webp", type: "image/webp", sizes: "48x48" }],
+    apple: [{ url: "/ClariSolveFavicon.webp", type: "image/webp" }],
+    other: [{ rel: "icon", url: "/ClariSolveFavicon.webp" }],
   },
 };
 
