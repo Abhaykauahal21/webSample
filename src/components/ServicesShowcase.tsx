@@ -35,7 +35,7 @@ const services = [
     title: "QA Testing",
     description: "Confidence at every release. We catch problems before customers do, ensuring your technology never fails.",
     metadata: ["Automated Testing", "Manual QA", "Bug Tracking", "Performance Testing", "User Acceptance"],
-    image: "https://media.istockphoto.com/id/2223826437/photo/q-a-support-and-information-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=gUWMqNabiQV8xFZubtOtCpiqDCLCFJ9C-WYg8xKJUXw=  ",
+    image: "https://media.istockphoto.com/id/2223826437/photo/q-a-support-and-information-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=gUWMqNabiQV8xFZubtOtCpiqDCLCFJ9C-WYg8xKJUXw=",
   },
   {
     id: "05",
