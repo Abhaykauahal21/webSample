@@ -133,7 +133,14 @@ function ScrollTopBtn() {
   }, []);
   return (
     <motion.button
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      onClick={() => {
+        const lenis = (window as any).__lenis;
+        if (lenis) {
+          lenis.scrollTo(0, { immediate: false });
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: visible ? 1 : 0.4, scale: 1 }}
       className="fixed bottom-8 right-8 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-colors bg-black/60 backdrop-blur-sm z-50"

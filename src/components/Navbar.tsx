@@ -40,7 +40,7 @@ export function Navbar() {
       <header className={`fixed top-0 left-0 right-0 z-50 bg-transparent transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full"}`}>
         <div className="max-w-[1400px] mx-auto px-6 h-14 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0" data-testid="link-logo">
+          <Link href="/" onClick={(e) => { if (window.location.pathname === "/") { e.preventDefault(); const l = (window as any).__lenis; if (l) l.scrollTo(0, { immediate: true }); } }} className="flex items-center shrink-0" data-testid="link-logo">
             <Image 
               src="/logo.webp" 
               alt="ClariSolve TECH Logo" 
@@ -53,17 +53,33 @@ export function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="flex items-center gap-1 px-3 py-1.5 text-sm text-white/80 hover:text-white transition-colors rounded-md"
-                data-testid={`link-nav-${link.name.toLowerCase()}`}
-              >
-                {link.name}
-                <ChevronDown size={13} className="opacity-60" />
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isHash = link.href.startsWith("#");
+              return (
+                <Link
+                  key={link.name}
+                  href={isHash ? `/${link.href}` : link.href}
+                  scroll={!isHash}
+                  onClick={(e) => {
+                    if (link.href === "/" && window.location.pathname === "/") {
+                      e.preventDefault();
+                      const l = (window as any).__lenis;
+                      if (l) l.scrollTo(0, { immediate: true });
+                    } else if (isHash) {
+                      e.preventDefault();
+                      const l = (window as any).__lenis;
+                      if (l) l.scrollTo(link.href);
+                    }
+                  }}
+                  className="flex items-center gap-1 px-3 py-1.5 text-sm text-white/80 hover:text-white transition-colors rounded-md"
+                  data-testid={`link-nav-${link.name.toLowerCase()}`}
+                  aria-label={`Navigate to ${link.name}`}
+                >
+                  {link.name}
+                  <ChevronDown size={13} className="opacity-60" />
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Right Icons */}
@@ -89,17 +105,33 @@ export function Navbar() {
             className="fixed inset-x-0 top-14 z-40 bg-[#111111]/95 backdrop-blur-lg border-b border-white/10 md:hidden"
           >
             <div className="flex flex-col py-4 px-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="py-4 text-white/80 hover:text-white border-b border-white/5 text-base flex items-center justify-between"
-                >
-                  {link.name}
-                  <ChevronDown size={14} className="opacity-50" />
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isHash = link.href.startsWith("#");
+                return (
+                  <Link
+                    key={link.name}
+                    href={isHash ? `/${link.href}` : link.href}
+                    scroll={!isHash}
+                    onClick={(e) => {
+                      setMobileOpen(false);
+                      if (link.href === "/" && window.location.pathname === "/") {
+                        e.preventDefault();
+                        const l = (window as any).__lenis;
+                        if (l) l.scrollTo(0, { immediate: true });
+                      } else if (isHash) {
+                        e.preventDefault();
+                        const l = (window as any).__lenis;
+                        if (l) l.scrollTo(link.href);
+                      }
+                    }}
+                    className="py-4 text-white/80 hover:text-white border-b border-white/5 text-base flex items-center justify-between"
+                    aria-label={`Navigate to ${link.name}`}
+                  >
+                    {link.name}
+                    <ChevronDown size={14} className="opacity-50" />
+                  </Link>
+                );
+              })}
             </div>
           </motion.div>
         )}

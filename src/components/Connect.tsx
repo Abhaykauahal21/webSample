@@ -240,6 +240,7 @@ export function Connect() {
               <a
                 href="tel:+918500222838"
                 className="group inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-black font-semibold text-sm rounded-full transition-all duration-300"
+                aria-label="Schedule a call at +91 85002 22838"
               >
                 Schedule a Call
                 <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />

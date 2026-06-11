@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
 
@@ -61,29 +62,34 @@ const loopedPartners = [...partners, ...partners, ...partners];
 /* ─── Blob "Let's Talk" button ───────────────────────────── */
 function BlobButton() {
   return (
-    <motion.a
-      href="/start-project"
-      className="relative flex flex-col items-center justify-center w-[120px] h-[120px] md:w-[150px] md:h-[150px] shrink-0 cursor-pointer select-none"
+    <motion.div
       whileHover={{ scale: 1.06 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="shrink-0"
     >
-      <motion.div
-        className="absolute inset-0 bg-[#1a1a1a] border border-white/5"
-        animate={{
-          borderRadius: [
-            "60% 40% 55% 45% / 55% 45% 60% 40%",
-            "45% 55% 40% 60% / 60% 40% 55% 45%",
-            "55% 45% 60% 40% / 40% 60% 45% 55%",
-            "60% 40% 55% 45% / 55% 45% 60% 40%",
-          ],
-        }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <div className="relative z-10 flex flex-col items-center gap-1.5 text-white">
-        <ArrowUpRight size={16} className="opacity-70" />
-        <span className="text-sm font-semibold tracking-wide">Let's Talk</span>
-      </div>
-    </motion.a>
+      <Link
+        href="/start-project"
+        className="relative flex flex-col items-center justify-center w-[120px] h-[120px] md:w-[150px] md:h-[150px] cursor-pointer select-none"
+        aria-label="Start a project with us"
+      >
+        <motion.div
+          className="absolute inset-0 bg-[#1a1a1a] border border-white/5"
+          animate={{
+            borderRadius: [
+              "60% 40% 55% 45% / 55% 45% 60% 40%",
+              "45% 55% 40% 60% / 60% 40% 55% 45%",
+              "55% 45% 60% 40% / 40% 60% 45% 55%",
+              "60% 40% 55% 45% / 55% 45% 60% 40%",
+            ],
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <div className="relative z-10 flex flex-col items-center gap-1.5 text-white">
+          <ArrowUpRight size={16} className="opacity-70" />
+          <span className="text-sm font-semibold tracking-wide">Let's Talk</span>
+        </div>
+      </Link>
+    </motion.div>
   );
 }
 
@@ -153,10 +159,9 @@ export function PartnersSection() {
     <section ref={containerRef} className="bg-[#0C0C0C] py-12 md:py-24 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-8 md:px-14">
         {/* Top Label */}
-        <div className="flex items-center gap-2 text-white/50 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-8">
+        <Link href="/partners" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-8 transition-colors" aria-label="View our partners">
           <span>Our Partners</span>
-          <ArrowUpRight size={14} />
-        </div>
+        </Link>
 
         {/* Headline with Scroll-based Word-by-word Reveal */}
         <h2 className="text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.1] tracking-tight max-w-[850px] text-white mb-16 flex flex-wrap gap-x-[0.25em]">

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 
@@ -52,7 +53,7 @@ export function Footer() {
             </div>
 
             <div className="flex flex-col gap-3 md:gap-4">
-              <a href="tel:+91 85002 22838" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm md:text-xl">
+              <a href="tel:+918500222838" className="flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm md:text-xl" aria-label="Call us at +91 85002 22838">
                 <Phone size={16} className="shrink-0" />
                 +91 85002 22838
               </a>
@@ -82,18 +83,26 @@ export function Footer() {
             <ul className="flex flex-col gap-3 md:gap-4">
               {navLinks1.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-white/50 hover:text-white transition-colors text-base md:text-lg">
+                  <Link
+                    href={link.href.startsWith("#") ? `/${link.href}` : link.href}
+                    className="text-white/50 hover:text-white transition-colors text-base md:text-lg"
+                    aria-label={`Navigate to ${link.label}`}
+                  >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
             <ul className="flex flex-col gap-3 md:gap-4">
               {navLinks2.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-white/50 hover:text-white transition-colors text-base md:text-lg">
+                  <Link
+                    href={link.href.startsWith("#") ? `/${link.href}` : link.href}
+                    className="text-white/50 hover:text-white transition-colors text-base md:text-lg"
+                    aria-label={`Navigate to ${link.label}`}
+                  >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

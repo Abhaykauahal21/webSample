@@ -162,7 +162,7 @@ function MobileTestimonialShowcase() {
 
         {/* CTA */}
         <div className="flex items-center gap-3 mt-6">
-          <a href="#work" className="flex items-center gap-3 group">
+          <Link href="/projects" className="flex items-center gap-3 group" aria-label="View latest projects">
             <span className="px-6 py-3 rounded-full bg-[#141414] text-white/60 text-sm font-medium border border-white/5 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black inline-block">
               View Latest Projects
             </span>
@@ -171,7 +171,7 @@ function MobileTestimonialShowcase() {
                 <path d="M7 17L17 7M17 7H7M17 7V17"/>
               </svg>
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
@@ -266,12 +266,12 @@ export function TestimonialShowcase() {
           </h2>
 
           <div className="flex items-center gap-3 mb-16">
-              <Link href="#work" className="flex items-center gap-3 group">
-  <button className="px-6 py-3 rounded-full bg-[#141414] text-white/60 text-sm font-medium border border-white/5 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black">
+              <Link href="/projects" className="flex items-center gap-3 group" aria-label="View latest projects">
+  <span className="px-6 py-3 rounded-full bg-[#141414] text-white/60 text-sm font-medium border border-white/5 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black inline-block">
     View Latest Projects
-  </button>
+  </span>
 
-  <div className="w-12 h-12 rounded-full bg-[#141414] text-white/60 flex items-center justify-center border border-white/5 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black group-hover:rotate-45">
+  <span className="w-12 h-12 rounded-full bg-[#141414] text-white/60 flex items-center justify-center border border-white/5 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black group-hover:rotate-45">
     <svg
       width="18"
       height="18"
@@ -284,7 +284,7 @@ export function TestimonialShowcase() {
     >
       <path d="M7 17L17 7M17 7H7M17 7V17" />
     </svg>
-  </div>
+  </span>
 </Link>
           </div>
 

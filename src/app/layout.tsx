@@ -56,7 +56,13 @@ export const metadata: Metadata = {
   icons: {
     icon: [{ url: "/ClariSolveFavicon.webp", type: "image/webp", sizes: "48x48" }],
     apple: [{ url: "/ClariSolveFavicon.webp", type: "image/webp" }],
-    other: [{ rel: "icon", url: "/ClariSolveFavicon.webp" }],
+    other: [
+      { rel: "icon", url: "/ClariSolveFavicon.webp" },
+      { rel: "icon", url: "/favicon.ico", sizes: "any" },
+    ],
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || "",
   },
 };
 

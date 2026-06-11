@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -140,11 +141,10 @@ export function ServicesShowcase() {
           style={{ willChange: "transform, opacity, scale" }}
         >
           {/* Top Bar inside slide */}
-          <div className="absolute top-10 left-8 md:left-20 right-8 md:right-20 flex justify-between items-center z-20">
-            <div className="flex items-center gap-2 text-white/50 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">
+          <div className="absolute top-20 left-8 md:left-20 right-8 md:right-20 flex justify-between items-center z-20">
+            <Link href="/start-project" className="flex items-center gap-2 text-white/50 hover:text-white text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase transition-colors" aria-label="What We Do - view our services">
               <span>What We Do</span>
-              <span className="text-white/30">↗</span>
-            </div>
+            </Link>
             <div className="text-white/30 text-[10px] md:text-xs font-mono tracking-widest uppercase">
               Built for outcomes
             </div>
@@ -178,13 +178,17 @@ export function ServicesShowcase() {
           <div className="relative z-10 w-full lg:w-[35%] aspect-[4/5] lg:aspect-auto lg:h-[70vh] flex items-center justify-center mt-12 lg:mt-0">
             <div className="service-image-card relative w-full h-full rounded-2xl overflow-hidden border border-white/10 backdrop-blur-3xl group perspective-1000">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 35vw"
-                className="service-image object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 35vw"
+                  className="service-image object-cover transition-transform duration-700 group-hover:scale-110"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    target.style.display = "none";
+                  }}
+                />
               <div className="absolute bottom-8 left-8 z-20">
                 <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-black transform group-hover:scale-110 group-hover:rotate-45 transition-all duration-500 cursor-pointer">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">

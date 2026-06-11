@@ -10,13 +10,13 @@ gsap.registerPlugin(ScrollTrigger);
 export function useLenis() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 0.8,
-      easing: (t) => 1 - Math.pow(1 - t, 3),
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 1.5,
-      touchMultiplier: 2,
+      wheelMultiplier: 1,
+      touchMultiplier: 1,
     });
 
     lenis.on("scroll", ScrollTrigger.update);
@@ -24,10 +24,16 @@ export function useLenis() {
     const raf = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(raf);
 
+    (window as any).__lenis = lenis;
+
+    requestAnimationFrame(() => {
+      lenis.scrollTo(0, { immediate: true });
+    });
 
     return () => {
       gsap.ticker.remove(raf);
       lenis.destroy();
+      delete (window as any).__lenis;
     };
   }, []);
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -82,18 +83,22 @@ export function Hero() {
 
               {/* CTA + Separator row on mobile */}
               <div className="flex flex-col gap-4">
-                <motion.a
-                  href="/start-project"
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7 }}
-                  className="hidden md:inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-[#ff4d00] hover:text-white transition-colors group"
                 >
-                  Start a project
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 transition-transform">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
-                </motion.a>
+                  <Link
+                    href="/start-project"
+                    className="hidden md:inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-[#ff4d00] hover:text-white transition-colors group"
+                    aria-label="Start a project with us"
+                  >
+                    Start a project
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 transition-transform">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </Link>
+                </motion.div>
                 <div className="w-full h-px bg-white/10" />
               </div>
             </div>
@@ -140,17 +145,23 @@ export function Hero() {
       <div className="flex items-center justify-between px-4 md:px-12 py-3 md:py-4">
         <div className="flex items-center gap-4">
           <Sparkle className="opacity-60 scale-75 md:scale-100" />
-          <motion.a
-            href="#work"
+          <button
+            onClick={() => {
+              const lenis = (window as any).__lenis;
+              if (lenis) {
+                lenis.scrollTo("#work");
+              } else {
+                document.querySelector("#work")?.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
             className="hidden md:flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] uppercase text-white/30 hover:text-white/60 transition-colors"
-            animate={{ y: [0, 4, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            aria-label="Scroll to view our work"
           >
             Scroll
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M12 5v14M5 12l7 7 7-7"/>
             </svg>
-          </motion.a>
+          </button>
         </div>
         <Sparkle className="opacity-60 scale-75 md:scale-100" />
         <Sparkle className="opacity-60 scale-75 md:scale-100" />

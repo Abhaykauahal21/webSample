@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
@@ -123,14 +124,22 @@ export function NetworkShowcase() {
           }}
           className="flex items-center gap-3"
         >
-          <button className="px-10 py-5 rounded-full bg-[#1a1a1a] text-white font-medium hover:bg-white hover:text-black transition-all duration-500 text-lg">
+          <Link
+            href="/start-project"
+            className="px-10 py-5 rounded-full bg-[#1a1a1a] text-white font-medium hover:bg-white hover:text-black transition-all duration-500 text-lg inline-block"
+            aria-label="Get in touch with us"
+          >
             Get In Touch
-          </button>
-          <button className="w-16 h-16 rounded-full bg-[#1a1a1a] text-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-500">
+          </Link>
+          <Link
+            href="/start-project"
+            className="w-16 h-16 rounded-full bg-[#1a1a1a] text-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-500"
+            aria-label="Start a project"
+          >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M7 17L17 7M17 7H7M17 7V17" />
             </svg>
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

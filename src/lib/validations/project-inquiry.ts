@@ -1,9 +1,31 @@
 import { z } from "zod";
 
 export const projectInquirySchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters").max(100),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().max(20).optional().or(z.literal("")),
+  name: z
+    .string()
+    .min(2, "Name must be at least 2 characters")
+    .max(100)
+    .regex(/^[a-zA-Z\s]+$/, "Name must only contain letters and spaces"),
+  email: z
+    .string()
+    .email("Please enter a valid email address")
+    .transform((v) => v.trim().toLowerCase()),
+  phone: z
+    .string()
+    .optional()
+    .or(z.literal(""))
+    .refine(
+      (val) => {
+        if (!val || val === "") return true;
+        const digits = val.replace(/\D/g, "");
+        if (digits.length === 0) return false;
+        if (digits.length === 10) {
+          return /^[6-9]/.test(digits);
+        }
+        return digits.length >= 7 && digits.length <= 15;
+      },
+      { message: "Indian numbers must start with 6-9 and be exactly 10 digits" },
+    ),
   company: z.string().max(200).optional().or(z.literal("")),
   businessStage: z.string().optional().or(z.literal("")),
   websiteUrl: z.string().url("Please enter a valid URL").optional().or(z.literal("")),

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { useRef } from "react";
 
@@ -75,10 +76,14 @@ function ProjectCard({ project, index, scrollYProgress }: { project: typeof proj
         <div className="w-full relative rounded-2xl bg-white/[0.02]">
           <Image
             src={project.image}
-            alt={project.title}
+            alt={`Screenshot of ${project.title} project`}
             width={900}
             height={600}
             className="w-full h-auto rounded-2xl"
+            onError={(e) => {
+              const target = e.currentTarget;
+              target.style.display = "none";
+            }}
           />
         </div>
 
@@ -132,6 +137,13 @@ export function SelectedWork() {
           </div>
 
           <div className="relative z-10">
+            {/* Back to Home */}
+            <div className="px-8 md:px-20 mb-8">
+              <Link href="/" className="inline-flex items-center gap-2 text-white/40 hover:text-white text-xs font-bold tracking-[0.2em] uppercase transition-colors" aria-label="Back to Home">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to Home
+              </Link>
+            </div>
             {/* Headline */}
             <div className="px-8 md:px-20 mb-32">
               <h2 className="text-[clamp(3rem,12vw,10rem)] font-bold text-white leading-[0.85] tracking-tighter">
@@ -166,14 +178,22 @@ export function SelectedWork() {
                 A curated selection of projects where strategy, creativity, and craftsmanship come together to build meaningful and enduring brand experiences.
               </p>
               <div className="flex items-center gap-3">
-                <button className="px-10 py-4 rounded-full bg-[#0C0C0C] text-white font-medium hover:bg-white hover:text-black transition-all duration-500 text-lg border border-white/5">
+                <a
+                  href="/projects"
+                  className="px-10 py-4 rounded-full bg-[#0C0C0C] text-white font-medium hover:bg-white hover:text-black transition-all duration-500 text-lg border border-white/5 inline-block"
+                  aria-label="View all our latest projects"
+                >
                   View Latest Projects
-                </button>
-                <button className="w-14 h-14 rounded-full bg-[#0C0C0C] text-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-500 border border-white/5">
+                </a>
+                <a
+                  href="/projects"
+                  className="w-14 h-14 rounded-full bg-[#0C0C0C] text-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-500 border border-white/5"
+                  aria-label="Get started with your project"
+                >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M7 17L17 7M17 7H7M17 7V17"/>
                   </svg>
-                </button>
+                </a>
               </div>
             </div>
           </div>

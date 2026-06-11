@@ -43,11 +43,16 @@ export default function StartProject() {
     setLoading(true);
     setSubmitError("");
 
+    const sanitized = {
+      ...result.data,
+      phone: result.data.phone?.replace(/\D/g, "") || "",
+    };
+
     try {
       const res = await fetch("/api/send-inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(sanitized),
       });
 
       if (res.ok) {
@@ -200,7 +205,7 @@ export default function StartProject() {
               <input
                 type="email"
                 value={form.email}
-                onChange={(e) => updateField("email", e.target.value)}
+                onChange={(e) => updateField("email", e.target.value.toLowerCase())}
                 className={`w-full bg-[#0C0C0C] border ${errors.email ? "border-red-500/50" : "border-white/10"} rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-primary transition-colors`}
                 placeholder="john@company.com"
               />
