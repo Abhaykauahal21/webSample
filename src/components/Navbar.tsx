@@ -43,7 +43,7 @@ export function Navbar() {
           <Link href="/" onClick={(e) => { if (window.location.pathname === "/") { e.preventDefault(); const l = (window as any).__lenis; if (l) l.scrollTo(0, { immediate: true }); } }} className="flex items-center shrink-0" data-testid="link-logo">
             <Image 
               src="/logo.webp" 
-              alt="ClariSolve TECH Logo" 
+              alt="ClariSolve TECH Logo image" 
               width={80}
               height={80}
               className="h-16 sm:h-20 mt-5 w-auto object-contain"
