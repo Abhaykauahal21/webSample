@@ -70,13 +70,13 @@ export default function StartProject() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-[#0C0C0C] flex items-center justify-center px-4 py-12">
+      <div className="min-h-screen bg-[#FAFAFA] flex items-center justify-center px-4 py-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           className="w-full max-w-lg"
         >
-          <div className="bg-[#141414] rounded-[32px] border border-white/5 p-8 md:p-12 text-center">
+          <div className="bg-white rounded-[32px] border border-black/10 p-8 md:p-12 text-center">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -90,7 +90,7 @@ export default function StartProject() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-2xl md:text-3xl font-bold text-white mb-3"
+              className="text-2xl md:text-3xl font-bold text-neutral-900 mb-3"
             >
               Thank You, {form.name.split(" ")[0]}!
             </motion.h1>
@@ -99,7 +99,7 @@ export default function StartProject() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-white/60 text-sm mb-8"
+              className="text-neutral-600 text-sm mb-8"
             >
               Vijay Nadella has received your message and will get back to you within 24 hours.
             </motion.p>
@@ -110,10 +110,10 @@ export default function StartProject() {
               transition={{ delay: 0.7 }}
               className="space-y-2 mb-8"
             >
-              <p className="text-white/40 text-xs uppercase tracking-[0.15em] font-medium">What happens next?</p>
+              <p className="text-neutral-400 text-xs uppercase tracking-[0.15em] font-medium">What happens next?</p>
               <div className="flex flex-col gap-2">
                 {["Vijay reviews your message", "We reach out via email or phone", "You receive a personalized response"].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 text-white/70 text-sm">
+                  <div key={i} className="flex items-center gap-3 text-neutral-700 text-sm">
                     <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                       <Check size={10} className="text-primary" />
                     </div>
@@ -130,7 +130,7 @@ export default function StartProject() {
             >
               <Link
                 href="/"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/20 hover:border-white/40 text-white text-sm rounded-full transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-black/20 hover:border-black/40 text-neutral-900 text-sm rounded-full transition-all"
               >
                 Back to Home
                 <ArrowUpRight size={14} />
@@ -143,9 +143,9 @@ export default function StartProject() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0C0C0C] text-white">
+    <div className="min-h-screen bg-[#FAFAFA] text-neutral-900">
       <div className="flex items-center justify-between px-6 md:px-14 pt-6 pb-2">
-        <Link href="/" className="text-white/50 hover:text-white transition-colors text-xs font-semibold tracking-[0.2em] uppercase flex items-center gap-1.5">
+        <Link href="/" className="text-neutral-500 hover:text-neutral-900 transition-colors text-xs font-semibold tracking-[0.2em] uppercase flex items-center gap-1.5">
           <span>Back to Home</span>
           <ArrowUpRight size={13} />
         </Link>
@@ -165,7 +165,7 @@ export default function StartProject() {
           <h1 className="text-[clamp(2rem,5vw,3.2rem)] font-bold leading-[1.05] tracking-tighter mb-3">
             Get in Touch
           </h1>
-          <p className="text-white/50 text-sm max-w-lg mx-auto">
+          <p className="text-neutral-500 text-sm max-w-lg mx-auto">
             Fill in the form below and Vijay Nadella will personally get back to you.
           </p>
         </motion.div>
@@ -174,7 +174,7 @@ export default function StartProject() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="bg-[#141414] rounded-[32px] border border-white/5 p-6 md:p-10"
+          className="bg-white rounded-[32px] border border-black/10 p-6 md:p-10"
         >
           {submitError && (
             <div className="flex items-center gap-2 p-3 mb-6 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
@@ -185,55 +185,55 @@ export default function StartProject() {
 
           <div className="space-y-5">
             <div>
-              <label className="text-white/40 text-[10px] uppercase tracking-[0.15em] font-medium block mb-2">
+              <label className="text-neutral-400 text-[10px] uppercase tracking-[0.15em] font-medium block mb-2">
                 Name <span className="text-primary">*</span>
               </label>
               <input
                 type="text"
                 value={form.name}
                 onChange={(e) => updateField("name", e.target.value)}
-                className={`w-full bg-[#0C0C0C] border ${errors.name ? "border-red-500/50" : "border-white/10"} rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-primary transition-colors`}
+                className={`w-full bg-[#FAFAFA] border ${errors.name ? "border-red-500/50" : "border-black/10"} rounded-xl px-4 py-3 text-neutral-900 text-sm outline-none focus:border-primary transition-colors`}
                 placeholder="John Doe"
               />
               {errors.name && <p className="text-red-400 text-xs mt-1.5 flex items-center gap-1"><AlertCircle size={10} />{errors.name}</p>}
             </div>
 
             <div>
-              <label className="text-white/40 text-[10px] uppercase tracking-[0.15em] font-medium block mb-2">
+              <label className="text-neutral-400 text-[10px] uppercase tracking-[0.15em] font-medium block mb-2">
                 Email <span className="text-primary">*</span>
               </label>
               <input
                 type="email"
                 value={form.email}
                 onChange={(e) => updateField("email", e.target.value.toLowerCase())}
-                className={`w-full bg-[#0C0C0C] border ${errors.email ? "border-red-500/50" : "border-white/10"} rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-primary transition-colors`}
+                className={`w-full bg-[#FAFAFA] border ${errors.email ? "border-red-500/50" : "border-black/10"} rounded-xl px-4 py-3 text-neutral-900 text-sm outline-none focus:border-primary transition-colors`}
                 placeholder="john@company.com"
               />
               {errors.email && <p className="text-red-400 text-xs mt-1.5 flex items-center gap-1"><AlertCircle size={10} />{errors.email}</p>}
             </div>
 
             <div>
-              <label className="text-white/40 text-[10px] uppercase tracking-[0.15em] font-medium block mb-2">
+              <label className="text-neutral-400 text-[10px] uppercase tracking-[0.15em] font-medium block mb-2">
                 Phn no:
               </label>
               <input
                 type="tel"
                 value={form.phone}
                 onChange={(e) => updateField("phone", e.target.value)}
-                className="w-full bg-[#0C0C0C] border border-white/10 rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-primary transition-colors"
+                className="w-full bg-[#FAFAFA] border border-black/10 rounded-xl px-4 py-3 text-neutral-900 text-sm outline-none focus:border-primary transition-colors"
                 placeholder="+1 234 567 890"
               />
             </div>
 
             <div>
-              <label className="text-white/40 text-[10px] uppercase tracking-[0.15em] font-medium block mb-2">
+              <label className="text-neutral-400 text-[10px] uppercase tracking-[0.15em] font-medium block mb-2">
                 Message <span className="text-primary">*</span>
               </label>
               <textarea
                 rows={5}
                 value={form.description}
                 onChange={(e) => updateField("description", e.target.value)}
-                className={`w-full bg-[#0C0C0C] border ${errors.description ? "border-red-500/50" : "border-white/10"} rounded-xl px-4 py-3 text-white text-sm outline-none focus:border-primary transition-colors resize-none`}
+                className={`w-full bg-[#FAFAFA] border ${errors.description ? "border-red-500/50" : "border-black/10"} rounded-xl px-4 py-3 text-neutral-900 text-sm outline-none focus:border-primary transition-colors resize-none`}
                 placeholder="Tell us about your vision..."
               />
               {errors.description && <p className="text-red-400 text-xs mt-1.5 flex items-center gap-1"><AlertCircle size={10} />{errors.description}</p>}

@@ -22,7 +22,7 @@ const siteName = "ClariSolve TECH";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0C0C0C",
+  themeColor: "#FFFFFF",
 };
 
 export const metadata: Metadata = {
@@ -72,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
         className={`${dmSans.variable} ${cormorant.variable} antialiased`}
       >

@@ -73,15 +73,15 @@ const pillars = [
 
 function PillarCard({ pillar, idx }: { pillar: typeof pillars[0]; idx: number }) {
   return (
-    <div className="relative flex flex-col p-6 rounded-3xl bg-white/[0.02] border border-white/[0.05] h-full">
+    <div className="relative flex flex-col p-6 rounded-3xl bg-black/[0.03] border border-black/[0.05] h-full">
       <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-3xl" />
-      <div className="mb-6 w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-primary border border-white/10">
+      <div className="mb-6 w-10 h-10 rounded-xl bg-black/5 flex items-center justify-center text-primary border border-black/10">
         {pillar.icon}
       </div>
-      <h4 className="text-white text-lg font-bold tracking-tight mb-2 uppercase">
+      <h4 className="text-neutral-900 text-lg font-bold tracking-tight mb-2 uppercase">
         {pillar.title}
       </h4>
-      <p className="text-white/40 text-sm leading-relaxed font-light">
+      <p className="text-neutral-400 text-sm leading-relaxed font-light">
         {pillar.desc}
       </p>
     </div>
@@ -90,21 +90,21 @@ function PillarCard({ pillar, idx }: { pillar: typeof pillars[0]; idx: number })
 
 function MobileTestimonialShowcase() {
   return (
-    <section className="relative w-full bg-[#0C0C0C] py-10 px-4 overflow-hidden">
+    <section className="relative w-full bg-[#FAFAFA] py-10 px-4 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         {/* Header */}
-        <div className="flex items-center gap-2 text-white/50 text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
+        <div className="flex items-center gap-2 text-neutral-500 text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
           <span>Why choose us</span>
           <ArrowUpRight size={14} />
         </div>
 
-        <h2 className="text-[clamp(2rem,10vw,3rem)] font-bold text-white leading-[1] tracking-tighter mb-8">
+        <h2 className="text-[clamp(2rem,10vw,3rem)] font-bold text-neutral-900 leading-[1] tracking-tighter mb-8">
           What our<br />clients are<br />saying
         </h2>
 
         {/* Pillar Cards Swiper */}
         <div className="mb-10">
-          <p className="text-white/40 text-xs uppercase tracking-[0.15em] mb-4 font-medium">Our pillars</p>
+          <p className="text-neutral-400 text-xs uppercase tracking-[0.15em] mb-4 font-medium">Our pillars</p>
           <Swiper
             spaceBetween={16}
             slidesPerView={1.2}
@@ -123,7 +123,7 @@ function MobileTestimonialShowcase() {
 
         {/* Testimonial Cards Swiper */}
         <div>
-          <p className="text-white/40 text-xs uppercase tracking-[0.15em] mb-4 font-medium">Testimonials</p>
+          <p className="text-neutral-400 text-xs uppercase tracking-[0.15em] mb-4 font-medium">Testimonials</p>
           <Swiper
             spaceBetween={16}
             slidesPerView={1.1}
@@ -134,7 +134,7 @@ function MobileTestimonialShowcase() {
           >
             {testimonials.map((t) => (
               <SwiperSlide key={t.id} className="!h-auto">
-                <div className="bg-[#141414] border border-white/5 rounded-[24px] p-6 flex flex-col justify-between h-full min-h-[280px]">
+                <div className="bg-white border border-black/10 rounded-[24px] p-6 flex flex-col justify-between h-full min-h-[280px]">
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, idx) => (
                       <svg key={idx} width="14" height="14" viewBox="0 0 24 24" fill="#D4AF37">
@@ -142,7 +142,7 @@ function MobileTestimonialShowcase() {
                       </svg>
                     ))}
                   </div>
-                  <p className="text-white/90 text-base font-medium leading-relaxed mb-6">
+                  <p className="text-neutral-900 text-base font-medium leading-relaxed mb-6">
                     &ldquo;{t.content}&rdquo;
                   </p>
                   <div className="flex items-center gap-3 mt-auto">
@@ -150,8 +150,8 @@ function MobileTestimonialShowcase() {
 <Image src={t.avatar} alt={t.author} fill sizes="40px" className="object-cover" />
                     </div>
                     <div>
-                      <h4 className="text-white font-bold text-sm leading-none mb-1">{t.author}</h4>
-                      <p className="text-white/40 text-xs">{t.role} &middot; {t.location}</p>
+                      <h4 className="text-neutral-900 font-bold text-sm leading-none mb-1">{t.author}</h4>
+                      <p className="text-neutral-400 text-xs">{t.role} &middot; {t.location}</p>
                     </div>
                   </div>
                 </div>
@@ -163,10 +163,10 @@ function MobileTestimonialShowcase() {
         {/* CTA */}
         <div className="flex items-center gap-3 mt-6">
           <Link href="/projects" className="flex items-center gap-3 group" aria-label="View latest projects">
-            <span className="px-6 py-3 rounded-full bg-[#141414] text-white/60 text-sm font-medium border border-white/5 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black inline-block">
+            <span className="px-6 py-3 rounded-full bg-white text-neutral-600 text-sm font-medium border border-black/10 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black inline-block">
               View Latest Projects
             </span>
-            <span className="w-12 h-12 rounded-full bg-[#141414] text-white/60 flex items-center justify-center border border-white/5 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black group-hover:rotate-45">
+            <span className="w-12 h-12 rounded-full bg-white text-neutral-600 flex items-center justify-center border border-black/10 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black group-hover:rotate-45">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 17L17 7M17 7H7M17 7V17"/>
               </svg>
@@ -251,27 +251,27 @@ export function TestimonialShowcase() {
   if (isMobile) return <MobileTestimonialShowcase />;
 
   return (
-    <section ref={containerRef} className="relative w-full bg-[#0C0C0C] py-12 md:py-20 px-4 md:px-8 overflow-visible">
-      <div ref={innerRef} className="max-w-[1400px] mx-auto min-h-[80vh] bg-[#141414] rounded-[40px] p-8 md:p-20 flex flex-col lg:flex-row items-center gap-16">
+    <section ref={containerRef} className="relative w-full bg-[#FAFAFA] py-12 md:py-20 px-4 md:px-8 overflow-visible">
+      <div ref={innerRef} className="max-w-[1400px] mx-auto min-h-[80vh] bg-white rounded-[40px] p-8 md:p-20 flex flex-col lg:flex-row items-center gap-16">
 
         {/* Left Side: Static Content (60%) */}
         <div ref={leftRef} className="w-full lg:w-[55%] flex flex-col items-start justify-center">
-          <div className="flex items-center gap-2 text-white/50 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-8">
+          <div className="flex items-center gap-2 text-neutral-500 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-8">
             <span>Why choose us</span>
             <ArrowUpRight size={14} />
           </div>
 
-          <h2 className="text-[clamp(3rem,8vw,6.5rem)] font-bold text-white leading-[0.95] tracking-tighter mb-16">
+          <h2 className="text-[clamp(3rem,8vw,6.5rem)] font-bold text-neutral-900 leading-[0.95] tracking-tighter mb-16">
             What our<br />clients are<br />saying
           </h2>
 
           <div className="flex items-center gap-3 mb-16">
               <Link href="/projects" className="flex items-center gap-3 group" aria-label="View latest projects">
-  <span className="px-6 py-3 rounded-full bg-[#141414] text-white/60 text-sm font-medium border border-white/5 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black inline-block">
+  <span className="px-6 py-3 rounded-full bg-white text-neutral-600 text-sm font-medium border border-black/10 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black inline-block">
     View Latest Projects
   </span>
 
-  <span className="w-12 h-12 rounded-full bg-[#141414] text-white/60 flex items-center justify-center border border-white/5 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black group-hover:rotate-45">
+  <span className="w-12 h-12 rounded-full bg-white text-neutral-600 flex items-center justify-center border border-black/10 transition-all duration-500 ease-out group-hover:bg-primary group-hover:text-black group-hover:rotate-45">
     <svg
       width="18"
       height="18"
@@ -289,7 +289,7 @@ export function TestimonialShowcase() {
           </div>
 
           {/* Pillars Section */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full pt-16 border-t border-white/5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full pt-16 border-t border-black/10">
             {pillars.map((pillar, idx) => (
               <motion.div
                 key={pillar.title}
@@ -297,19 +297,19 @@ export function TestimonialShowcase() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="relative flex flex-col p-6 rounded-3xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-500 group overflow-hidden"
+                className="relative flex flex-col p-6 rounded-3xl bg-black/[0.03] border border-black/[0.05] hover:bg-black/[0.04] hover:border-black/[0.1] transition-all duration-500 group overflow-hidden"
               >
                 <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-700" />
 
-                <div className="mb-6 w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white/40 group-hover:text-primary group-hover:scale-110 transition-all duration-500 border border-white/10">
+                <div className="mb-6 w-10 h-10 rounded-xl bg-black/5 flex items-center justify-center text-neutral-400 group-hover:text-primary group-hover:scale-110 transition-all duration-500 border border-black/10">
                   {pillar.icon}
                 </div>
 
-                <h4 className="text-white text-lg font-bold tracking-tight mb-2 group-hover:translate-x-1 transition-transform duration-500 uppercase">
+                <h4 className="text-neutral-900 text-lg font-bold tracking-tight mb-2 group-hover:translate-x-1 transition-transform duration-500 uppercase">
                   {pillar.title}
                 </h4>
 
-                <p className="text-white/40 text-sm leading-relaxed font-light group-hover:text-white/70 transition-colors duration-500">
+                <p className="text-neutral-400 text-sm leading-relaxed font-light group-hover:text-neutral-700 transition-colors duration-500">
                   {pillar.desc}
                 </p>
 
@@ -327,7 +327,7 @@ export function TestimonialShowcase() {
               ref={(el) => {
                 cardsRef.current[i] = el;
               }}
-              className="absolute inset-0 w-full h-full bg-[#0C0C0C] border border-white/5 rounded-[32px] p-8 md:p-12 flex flex-col justify-between shadow-2xl"
+              className="absolute inset-0 w-full h-full bg-[#FAFAFA] border border-black/10 rounded-[32px] p-8 md:p-12 flex flex-col justify-between shadow-2xl"
               style={{ willChange: "transform, opacity" }}
             >
               <div className="flex gap-1 mb-6">
@@ -338,7 +338,7 @@ export function TestimonialShowcase() {
                 ))}
               </div>
 
-              <p className="text-white text-xl md:text-2xl lg:text-3xl font-medium leading-tight tracking-tight mb-12">
+              <p className="text-neutral-900 text-xl md:text-2xl lg:text-3xl font-medium leading-tight tracking-tight mb-12">
                 &ldquo;{t.content}&rdquo;
               </p>
 
@@ -347,8 +347,8 @@ export function TestimonialShowcase() {
                   <Image src={t.avatar} alt={t.author} fill sizes="56px" className="object-cover" />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-lg leading-none mb-1">{t.author}</h4>
-                  <p className="text-white/40 text-xs md:text-sm font-light">
+                  <h4 className="text-neutral-900 font-bold text-lg leading-none mb-1">{t.author}</h4>
+                  <p className="text-neutral-400 text-xs md:text-sm font-light">
                     {t.role}<br />{t.location}
                   </p>
                 </div>

@@ -71,7 +71,7 @@ export function Navbar() {
                       if (l) l.scrollTo(link.href);
                     }
                   }}
-                  className="flex items-center gap-1 px-3 py-1.5 text-sm text-white/80 hover:text-white transition-colors rounded-md"
+                  className="flex items-center gap-1 px-3 py-1.5 text-sm text-neutral-800 hover:text-neutral-900 transition-colors rounded-md"
                   data-testid={`link-nav-${link.name.toLowerCase()}`}
                   aria-label={`Navigate to ${link.name}`}
                 >
@@ -85,7 +85,7 @@ export function Navbar() {
           {/* Right Icons */}
           <div className="flex items-center gap-1">
             <button
-              className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
+              className="md:hidden p-2 text-neutral-700 hover:text-neutral-900 transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               data-testid="button-mobile-menu"
             >
@@ -102,7 +102,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="fixed inset-x-0 top-14 z-40 bg-[#111111]/95 backdrop-blur-lg border-b border-white/10 md:hidden"
+            className="fixed inset-x-0 top-14 z-40 bg-white/95 backdrop-blur-lg border-b border-black/10 md:hidden"
           >
             <div className="flex flex-col py-4 px-6">
               {navLinks.map((link) => {
@@ -124,7 +124,7 @@ export function Navbar() {
                         if (l) l.scrollTo(link.href);
                       }
                     }}
-                    className="py-4 text-white/80 hover:text-white border-b border-white/5 text-base flex items-center justify-between"
+                    className="py-4 text-neutral-800 hover:text-neutral-900 border-b border-black/10 text-base flex items-center justify-between"
                     aria-label={`Navigate to ${link.name}`}
                   >
                     {link.name}

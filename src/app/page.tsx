@@ -16,21 +16,21 @@ import { LenisProvider } from "@/components/LenisProvider";
 export default function Home() {
   return (
     <LenisProvider>
-      <main className="bg-[#0C0C0C] min-h-screen text-foreground selection:bg-primary selection:text-primary-foreground">
+      <main className="bg-[#FAFAFA] min-h-screen text-foreground selection:bg-primary selection:text-primary-foreground">
         <Navbar />
         <Hero />
         <div className='py-10 md:py-20 flex flex-col gap-4 overflow-hidden'>
           <TextMarquee
             delay={500}
             baseVelocity={-3}
-            clasname='font-bold tracking-[-0.07em] leading-[90%] text-white/10 uppercase'
+            clasname='font-bold tracking-[-0.07em] leading-[90%] text-[#444444] uppercase'
           >
             ClariSolve TECH
           </TextMarquee>
           <TextMarquee
             delay={500}
             baseVelocity={3}
-            clasname='font-bold tracking-[-0.07em] leading-[90%] text-white/10 uppercase'
+            clasname='font-bold tracking-[-0.07em] leading-[90%] text-[#444444] uppercase'
           >
             Technology Excellence 2026
           </TextMarquee>

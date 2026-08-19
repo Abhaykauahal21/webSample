@@ -14,13 +14,13 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-screen bg-[#0C0C0C] flex items-center justify-center px-4">
+    <div className="min-h-screen bg-[#FAFAFA] flex items-center justify-center px-4">
       <div className="text-center max-w-md">
-        <h1 className="text-6xl font-bold text-white mb-4">500</h1>
-        <p className="text-white/60 mb-8">Something went wrong. We&apos;ve been notified and are looking into it.</p>
+        <h1 className="text-6xl font-bold text-neutral-900 mb-4">500</h1>
+        <p className="text-neutral-600 mb-8">Something went wrong. We&apos;ve been notified and are looking into it.</p>
         <button
           onClick={reset}
-          className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors text-sm"
+          className="px-6 py-3 bg-black/10 hover:bg-black/10 text-neutral-900 rounded-full transition-colors text-sm"
         >
           Try Again
         </button>

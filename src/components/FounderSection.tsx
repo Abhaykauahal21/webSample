@@ -26,7 +26,7 @@ function Word({ word, index, totalWords, scrollYProgress }: {
   return (
     <motion.span
       style={{ opacity, y }}
-      className="text-[clamp(1.5rem,3.5vw,2.5rem)] font-medium text-white leading-[1.5] tracking-tight italic font-serif mr-[0.3em] mb-[0.2em]"
+      className="text-[clamp(1.5rem,3.5vw,2.5rem)] font-medium text-neutral-900 leading-[1.5] tracking-tight italic font-serif mr-[0.3em] mb-[0.2em]"
     >
       {word}
     </motion.span>
@@ -38,8 +38,8 @@ function MobileFounderSection() {
   const quoteWords = quote.split(" ");
 
   return (
-    <section className="relative w-full bg-[#0C0C0C] py-12 px-4 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto bg-[#141414] rounded-[32px] overflow-hidden border border-white/5 shadow-2xl relative">
+    <section className="relative w-full bg-[#FAFAFA] py-12 px-4 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto bg-white rounded-[32px] overflow-hidden border border-black/10 shadow-2xl relative">
         {/* Subtle grain */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.08] z-0" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundRepeat: "repeat", backgroundSize: "200px" }} />
 
@@ -68,18 +68,14 @@ function MobileFounderSection() {
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[250px] h-[250px] bg-[#ff8c00]/15 blur-[100px] rounded-full z-0" />
 
           <Image
-            src="/founderSection.webp"
-            alt="Vijay Nadella - Founder & CEO"
+            src="/vijay.webp"
+            alt="Vijay Nadella, Founder & CEO of ClariSolve Tech"
             fill
+            priority
+            loading="eager"
             sizes="(max-width: 1400px) 100vw, 800px"
             className="object-cover object-[50%_15%]"
           />
-
-          {/* Dark gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#141414]/20 to-transparent" />
-
-          {/* Glassmorphism bottom edge */}
-          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#141414] to-transparent" />
         </motion.div>
 
         {/* Content */}
@@ -104,7 +100,7 @@ function MobileFounderSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[clamp(1.8rem,7vw,2.8rem)] font-bold text-white leading-[1.05] tracking-tighter mb-3"
+            className="text-[clamp(1.8rem,7vw,2.8rem)] font-bold text-neutral-900 leading-[1.05] tracking-tighter mb-3"
           >
             The Mind Behind<br />ClariSolve Tech
           </motion.h2>
@@ -115,7 +111,7 @@ function MobileFounderSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-white/70 text-sm leading-relaxed mb-6 italic border-l-2 border-[#ff8c00]/40 pl-4"
+            className="text-neutral-700 text-sm leading-relaxed mb-6 italic border-l-2 border-[#ff8c00]/40 pl-4"
           >
             &ldquo;Technology should simplify business, not complicate it.&rdquo;
           </motion.p>
@@ -128,7 +124,7 @@ function MobileFounderSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mb-6"
           >
-            <p className="text-white/50 text-sm leading-relaxed">
+            <p className="text-neutral-500 text-sm leading-relaxed">
               {quoteWords.map((word, i) => (
                 <motion.span
                   key={i}
@@ -150,14 +146,14 @@ function MobileFounderSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.25 }}
-            className="flex items-center gap-3 mb-8 pb-6 border-b border-white/5"
+            className="flex items-center gap-3 mb-8 pb-6 border-b border-black/10"
           >
             <div className="w-10 h-10 rounded-full bg-[#ff8c00]/10 flex items-center justify-center border border-[#ff8c00]/20">
               <span className="text-[#ff8c00] text-lg font-serif font-bold">V</span>
             </div>
             <div>
-              <h4 className="text-white font-bold text-sm leading-none mb-1">Vijay Nadella</h4>
-              <p className="text-white/40 text-[10px] tracking-[0.15em] uppercase font-medium">Founder &amp; CEO, ClariSolve Tech</p>
+              <h4 className="text-neutral-900 font-bold text-sm leading-none mb-1">Vijay Nadella</h4>
+              <p className="text-neutral-400 text-[10px] tracking-[0.15em] uppercase font-medium">Founder &amp; CEO, ClariSolve Tech</p>
             </div>
           </motion.div>
 
@@ -176,12 +172,12 @@ function MobileFounderSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: 0.35 + i * 0.08 }}
-                  className="snap-start shrink-0 w-[160px] bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 backdrop-blur-xl"
+                  className="snap-start shrink-0 w-[160px] bg-black/[0.03] border border-black/[0.08] rounded-2xl p-5 backdrop-blur-xl"
                 >
                   <span className="text-[clamp(1.5rem,5vw,2rem)] font-bold text-[#ff8c00] leading-none block mb-2">
                     {stat.value}
                   </span>
-                  <span className="text-white/50 text-xs leading-snug block">
+                  <span className="text-neutral-500 text-xs leading-snug block">
                     {stat.label}
                   </span>
                 </motion.div>
@@ -228,8 +224,8 @@ export function FounderSection() {
   }
 
   return (
-    <section ref={containerRef} className="relative w-full bg-[#0C0C0C] py-12 md:py-24 px-4 md:px-8 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto bg-[#141414] rounded-[40px] overflow-hidden border border-white/5 shadow-2xl relative min-h-[600px] lg:min-h-[800px]">
+    <section ref={containerRef} className="relative w-full bg-[#FAFAFA] py-12 md:py-24 px-4 md:px-8 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto bg-white rounded-[40px] overflow-hidden border border-black/10 shadow-2xl relative min-h-[600px] lg:min-h-[800px]">
 
         {/* Background Image Wrapper */}
         <div className="absolute inset-0 z-0">
@@ -238,19 +234,18 @@ export function FounderSection() {
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full h-full"
+            className="relative w-full h-full"
           >
             <Image
-              src="/founderSection.webp"
-              alt=""
+              src="/vijay.webp"
+              alt="Vijay Nadella, Founder & CEO of ClariSolve Tech"
               fill
+              priority
+              loading="eager"
               sizes="(max-width: 1400px) 100vw, 1400px"
               className="object-cover object-[95%_top] lg:object-right-top"
             />
           </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0C0C0C] via-[#0C0C0C]/60 to-transparent z-10 hidden lg:block" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/50 to-transparent z-10 lg:hidden" />
-          <div className="absolute inset-0 bg-black/5 z-10" />
         </div>
 
         {/* Content Layer */}
@@ -268,7 +263,7 @@ export function FounderSection() {
                   Founder&rsquo;s Vision
                 </span>
               </div>
-              <h4 className="text-white/50 text-xs font-medium tracking-[0.15em] uppercase pl-10 group-hover:text-white/80 transition-colors duration-500">
+              <h4 className="text-neutral-500 text-xs font-medium tracking-[0.15em] uppercase pl-10 group-hover:text-neutral-800 transition-colors duration-500">
                 The Mind Behind The Brand
               </h4>
             </div>
@@ -279,7 +274,7 @@ export function FounderSection() {
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 0.1, scale: 1 }}
               viewport={{ once: true }}
-              className="absolute -left-10 -top-10 text-[10rem] font-serif leading-none text-white pointer-events-none"
+              className="absolute -left-10 -top-10 text-[10rem] font-serif leading-none text-neutral-900 pointer-events-none"
             >
               &ldquo;
             </motion.span>
@@ -297,7 +292,7 @@ export function FounderSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col gap-2 mb-16 pl-1 border-l-2 border-[#ff8c00]/50"
           >
-            <h3 className="text-white text-3xl font-bold tracking-tight leading-none">Vijay Nadella</h3>
+            <h3 className="text-neutral-900 text-3xl font-bold tracking-tight leading-none">Vijay Nadella</h3>
             <p className="text-[#ff8c00] text-sm font-semibold tracking-[0.1em] uppercase">Founder &amp; CEO, ClariSolve Tech</p>
           </motion.div>
 
@@ -315,8 +310,8 @@ export function FounderSection() {
               <div className="bg-white rounded-[1px]" />
             </div>
             <div className="flex flex-col">
-              <span className="text-white font-bold tracking-tighter leading-none text-sm uppercase">Founder</span>
-              <span className="text-white font-bold tracking-tighter leading-none text-sm uppercase">Vision</span>
+              <span className="text-neutral-900 font-bold tracking-tighter leading-none text-sm uppercase">Founder</span>
+              <span className="text-neutral-900 font-bold tracking-tighter leading-none text-sm uppercase">Vision</span>
             </div>
           </motion.div>
         </div>

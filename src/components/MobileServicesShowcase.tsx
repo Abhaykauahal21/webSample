@@ -188,14 +188,14 @@ if (words?.length) {
   }, []);
 
   return (
-    <section className="md:hidden bg-[#0C0C0C] py-24">
+    <section className="md:hidden bg-[#FAFAFA] py-24">
       <div className="px-6">
         <div className="mb-20">
-          <p className="text-[11px] uppercase tracking-[0.35em] text-white/40 font-semibold">
+          <p className="text-[11px] uppercase tracking-[0.35em] text-neutral-400 font-semibold">
             What We Do
           </p>
 
-          <h2 className="mt-6 text-white text-5xl font-bold leading-[0.9] tracking-tight">
+          <h2 className="mt-6 text-neutral-900 text-5xl font-bold leading-[0.9] tracking-tight">
             Built For
             <br />
             Outcomes
@@ -209,9 +209,9 @@ if (words?.length) {
               ref={(el) => {
                 cardsRef.current[index] = el;
               }}
-              className="py-16 border-b border-white/10"
+              className="py-16 border-b border-black/10"
             >
-              <span className="block text-7xl font-bold text-white/10 leading-none">
+              <span className="block text-7xl font-bold text-neutral-300 leading-none">
                 {service.id}
               </span>
 
@@ -219,7 +219,7 @@ if (words?.length) {
                 ref={(el) => {
                   titleRefs.current[index] = el;
                 }}
-                className="mt-6 text-white text-4xl font-bold leading-[0.95] tracking-tight"
+                className="mt-6 text-neutral-900 text-4xl font-bold leading-[0.95] tracking-tight"
               >
                 {service.title.split(" ").map((word, i) => (
                   <span
@@ -238,7 +238,7 @@ if (words?.length) {
                   ref={(el) => {
                     descRefs.current[index] = el;
                   }}
-                  className="text-white/55 text-base leading-relaxed max-w-md"
+                  className="text-neutral-500 text-base leading-relaxed max-w-md"
                 >
                   {service.description}
                 </p>
@@ -252,9 +252,9 @@ if (words?.length) {
                   {service.features.map((feature) => (
                     <li
                       key={feature}
-                      className="feature flex items-center gap-3 text-white/75 text-sm"
+                      className="feature flex items-center gap-3 text-neutral-900/75 text-sm"
                     >
-                      <span className="text-white/40">→</span>
+                      <span className="text-neutral-400">→</span>
                       <span>{feature}</span>
                     </li>
                   ))}

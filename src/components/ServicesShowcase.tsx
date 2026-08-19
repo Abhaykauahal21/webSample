@@ -130,22 +130,22 @@ export function ServicesShowcase() {
        <MobileServicesShowcase />
 
 
-      <div ref={containerRef} className="relative bg-[#0C0C0C] overflow-hidden min-h-screen hidden md:block">
+      <div ref={containerRef} className="relative bg-[#FAFAFA] overflow-hidden min-h-screen hidden md:block">
       {services.map((service, i) => (
         <div
           key={service.id}
           ref={(el) => {
             sectionsRef.current[i] = el;
           }}
-          className="absolute inset-x-4 md:inset-x-8 top-0 bottom-0 md:bottom-4 rounded-[40px] flex flex-col lg:flex-row items-center justify-between px-8 md:px-20 py-20 lg:py-0 bg-[#141414] overflow-hidden"
+          className="absolute inset-x-4 md:inset-x-8 top-0 bottom-0 md:bottom-4 rounded-[40px] flex flex-col lg:flex-row items-center justify-between px-8 md:px-20 py-20 lg:py-0 bg-white overflow-hidden"
           style={{ willChange: "transform, opacity, scale" }}
         >
           {/* Top Bar inside slide */}
           <div className="absolute top-20 left-8 md:left-20 right-8 md:right-20 flex justify-between items-center z-20">
-            <Link href="/start-project" className="flex items-center gap-2 text-white/50 hover:text-white text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase transition-colors" aria-label="What We Do - view our services">
+            <Link href="/start-project" className="flex items-center gap-2 text-neutral-500 hover:text-neutral-900 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase transition-colors" aria-label="What We Do - view our services">
               <span>What We Do</span>
             </Link>
-            <div className="text-white/30 text-[10px] md:text-xs font-mono tracking-widest uppercase">
+            <div className="text-neutral-400 text-[10px] md:text-xs font-mono tracking-widest uppercase">
               Built for outcomes
             </div>
           </div>
@@ -153,21 +153,21 @@ export function ServicesShowcase() {
           {/* Left Content (60%) */}
           <div className="relative z-10 w-full lg:w-[60%] flex flex-col justify-center gap-8 mt-12 lg:mt-0">
             <div className="flex flex-col gap-4">
-              <h2 className="service-title text-[clamp(2.5rem,8vw,7rem)] font-bold text-white leading-[0.9] tracking-tighter">
+              <h2 className="service-title text-[clamp(2.5rem,8vw,7rem)] font-bold text-neutral-900 leading-[0.9] tracking-tighter">
                 {service.title.split(" ").map((word, idx) => (
                   <span key={idx} className="inline-block mr-[0.2em]">{word}</span>
                 ))}
               </h2>
             </div>
 
-            <p className="service-desc text-white/60 text-lg md:text-xl max-w-xl leading-relaxed font-light">
+            <p className="service-desc text-neutral-600 text-lg md:text-xl max-w-xl leading-relaxed font-light">
               {service.description}
             </p>
 
             <ul className="service-meta grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3 mt-4">
               {service.metadata.map((item, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-white/80 text-sm md:text-base group cursor-default">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-white transition-colors duration-300" />
+                <li key={idx} className="flex items-center gap-3 text-neutral-800 text-sm md:text-base group cursor-default">
+                  <span className="w-1.5 h-1.5 rounded-full bg-black/10 group-hover:bg-primary transition-colors duration-300" />
                   {item}
                 </li>
               ))}
@@ -176,7 +176,7 @@ export function ServicesShowcase() {
 
           {/* Right Visual (40%) */}
           <div className="relative z-10 w-full lg:w-[35%] aspect-[4/5] lg:aspect-auto lg:h-[70vh] flex items-center justify-center mt-12 lg:mt-0">
-            <div className="service-image-card relative w-full h-full rounded-2xl overflow-hidden border border-white/10 backdrop-blur-3xl group perspective-1000">
+            <div className="service-image-card relative w-full h-full rounded-2xl overflow-hidden border border-black/10 backdrop-blur-3xl group perspective-1000">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
                 <Image
                   src={service.image}

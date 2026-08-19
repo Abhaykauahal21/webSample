@@ -45,7 +45,7 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
   }, [isInView, value])
 
   return (
-    <span ref={ref} className="text-3xl md:text-4xl font-bold text-white">
+    <span ref={ref} className="text-3xl md:text-4xl font-bold text-neutral-900">
       {count}{suffix}
     </span>
   )
@@ -103,7 +103,7 @@ export function Connect() {
     <section
       id="connect"
       ref={sectionRef}
-      className="relative py-12 md:py-36 px-4 md:px-8 bg-[#0C0C0C] overflow-hidden"
+      className="relative py-12 md:py-36 px-4 md:px-8 bg-[#FAFAFA] overflow-hidden"
     >
       <div
         ref={glowRef}
@@ -138,7 +138,7 @@ export function Connect() {
               LET&apos;S CONNECT
             </motion.span>
 
-            <h2 className="font-serif text-[clamp(2rem,6vw,3.8rem)] leading-[1.1] text-white mb-6">
+            <h2 className="font-serif text-[clamp(2rem,6vw,3.8rem)] leading-[1.1] text-neutral-900 mb-6">
               <WordReveal text="Let's Build Something Great Together." />
             </h2>
 
@@ -147,7 +147,7 @@ export function Connect() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-white/50 text-sm md:text-base leading-relaxed mb-10 max-w-lg"
+              className="text-neutral-500 text-sm md:text-base leading-relaxed mb-10 max-w-lg"
             >
               We help businesses transform through cutting-edge software, websites, AI solutions,
               and automation. Partner with us to turn your vision into reality.
@@ -166,7 +166,7 @@ export function Connect() {
                   <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                     <point.icon size={14} className="text-primary" />
                   </div>
-                  <span className="text-white/70 text-sm">{point.text}</span>
+                  <span className="text-neutral-700 text-sm">{point.text}</span>
                 </div>
               ))}
             </motion.div>
@@ -177,12 +177,12 @@ export function Connect() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex gap-8 md:gap-12 mb-10 pb-10 border-b border-white/5"
+              className="flex gap-8 md:gap-12 mb-10 pb-10 border-b border-black/10"
             >
               {metrics.map((metric, i) => (
                 <div key={i} className="flex flex-col">
                   <Counter value={metric.value} suffix={metric.suffix} />
-                  <span className="text-white/40 text-xs tracking-[0.1em] uppercase mt-1">{metric.label}</span>
+                  <span className="text-neutral-400 text-xs tracking-[0.1em] uppercase mt-1">{metric.label}</span>
                 </div>
               ))}
             </motion.div>
@@ -196,18 +196,18 @@ export function Connect() {
               className="flex flex-col sm:flex-row gap-4 mb-8"
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                  <Mail size={16} className="text-white/60" />
+                <div className="w-10 h-10 rounded-full bg-black/5 border border-black/10 flex items-center justify-center shrink-0">
+                  <Mail size={16} className="text-neutral-600" />
                 </div>
                 <div className="min-w-0">
-                  <span className="text-white/40 text-xs uppercase tracking-[0.15em]">Email</span>
+                  <span className="text-neutral-400 text-xs uppercase tracking-[0.15em]">Email</span>
                   <div className="flex items-center gap-2">
-                    <a href="mailto:vijaynadella@clarisolvetech.com?subject=Inquiry" className="text-white/80 text-sm hover:text-primary transition-colors break-all">
+                    <a href="mailto:vijaynadella@clarisolvetech.com?subject=Inquiry" className="text-neutral-800 text-sm hover:text-primary transition-colors break-all">
                       vijaynadella@clarisolvetech.com
                     </a>
                     <button
                       onClick={() => navigator.clipboard.writeText("vijaynadella@clarisolvetech.com")}
-                      className="text-white/30 hover:text-white/60 transition-colors text-xs shrink-0"
+                      className="text-neutral-400 hover:text-neutral-600 transition-colors text-xs shrink-0"
                       title="Copy email"
                     >
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -217,14 +217,14 @@ export function Connect() {
                   </div>
                 </div>
               </div>
-              <div className="w-px h-10 bg-white/5 mx-2 self-center hidden sm:block shrink-0" />
+              <div className="w-px h-10 bg-black/5 mx-2 self-center hidden sm:block shrink-0" />
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                  <MapPin size={16} className="text-white/60" />
+                <div className="w-10 h-10 rounded-full bg-black/5 border border-black/10 flex items-center justify-center shrink-0">
+                  <MapPin size={16} className="text-neutral-600" />
                 </div>
                 <div>
-                  <span className="text-white/40 text-xs uppercase tracking-[0.15em]">Location</span>
-                  <p className="text-white/80 text-sm">Hyderabad, India</p>
+                  <span className="text-neutral-400 text-xs uppercase tracking-[0.15em]">Location</span>
+                  <p className="text-neutral-800 text-sm">Hyderabad, India</p>
                 </div>
               </div>
             </motion.div>
@@ -247,7 +247,7 @@ export function Connect() {
               </a>
               <Link
                 href="/start-project"
-                className="group inline-flex items-center gap-2 px-6 py-3 border border-white/20 hover:border-white/40 text-white text-sm rounded-full transition-all duration-300"
+                className="group inline-flex items-center gap-2 px-6 py-3 border border-black/20 hover:border-black/40 text-neutral-900 text-sm rounded-full transition-all duration-300"
               >
                 Start a Project
                 <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -267,26 +267,26 @@ export function Connect() {
               <div
                 className="absolute inset-0 rounded-full opacity-30 blur-3xl"
                 style={{
-                  background: "radial-gradient(circle at center, rgba(255, 140, 0, 0.25) 0%, transparent 70%)",
+                  background: "radial-gradient(circle at center, rgba(0, 0, 0, 0.1) 0%, transparent 70%)",
                 }}
               />
               <div className="relative w-full max-w-[500px] mx-auto">
                 <Globe
                   markers={locations}
                   arcs={arcs}
-                  markerColor={[1, 0.55, 0]}
-                  baseColor={[0.08, 0.08, 0.1]}
-                  arcColor={[1, 0.55, 0]}
-                  glowColor={[1, 0.4, 0]}
+                  markerColor={[0, 0, 0]}
+                  baseColor={[1, 1, 1]}
+                  arcColor={[0, 0, 0]}
+                  glowColor={[0, 0, 0]}
                   dark={1}
-                  mapBrightness={6}
+                  mapBrightness={5}
                   markerSize={0.035}
                   markerElevation={0.03}
                   arcWidth={0.8}
                   arcHeight={0.35}
                   speed={0.004}
                   theta={0.3}
-                  diffuse={1.2}
+                  diffuse={1.0}
                 />
               </div>
             </motion.div>

@@ -47,10 +47,10 @@ export function Cursor() {
           width: hovered ? 60 : 28,
           height: hovered ? 60 : 28,
           borderRadius: "50%",
-          border: "1.5px solid rgba(255,255,255,0.5)",
+          border: "1.5px solid rgba(0,0,0,0.6)",
           boxShadow: hovered
-            ? "0 0 20px rgba(255,255,255,0.15), inset 0 0 20px rgba(255,255,255,0.05)"
-            : "0 0 6px rgba(255,255,255,0.1)",
+            ? "0 0 20px rgba(0,0,0,0.18), inset 0 0 20px rgba(0,0,0,0.08)"
+            : "0 0 6px rgba(0,0,0,0.15)",
           willChange: "transform",
           transition: "width 0.35s ease, height 0.35s ease, box-shadow 0.35s ease",
         }}
@@ -64,8 +64,8 @@ export function Cursor() {
           translateY: "-50%",
           width: 4,
           height: 4,
-          background: "rgba(255,255,255,0.8)",
-          boxShadow: "0 0 6px rgba(255,255,255,0.4)",
+          background: "rgba(0,0,0,0.9)",
+          boxShadow: "0 0 6px rgba(0,0,0,0.5)",
           willChange: "transform",
         }}
       />

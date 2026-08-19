@@ -93,9 +93,9 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0C0C0C] text-white">
+    <div className="min-h-screen bg-[#FAFAFA] text-neutral-900">
       <div className="flex items-center justify-between px-6 md:px-14 pt-6 pb-2">
-        <Link href="/" className="text-white/50 hover:text-white transition-colors text-xs font-semibold tracking-[0.2em] uppercase flex items-center gap-1.5" aria-label="Back to Home">
+        <Link href="/" className="text-neutral-500 hover:text-neutral-900 transition-colors text-xs font-semibold tracking-[0.2em] uppercase flex items-center gap-1.5" aria-label="Back to Home">
           <ArrowLeft size={13} />
           <span>Back to Home</span>
         </Link>
@@ -108,11 +108,11 @@ export default function Projects() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16"
         >
-          <span className="text-white/50 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-4 inline-block">Our Work</span>
+          <span className="text-neutral-500 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-4 inline-block">Our Work</span>
           <h1 className="text-[clamp(2.5rem,7vw,5rem)] font-bold leading-[0.9] tracking-tighter mb-4">
             Selected<br />Projects
           </h1>
-          <p className="text-white/50 text-sm md:text-base max-w-lg">
+          <p className="text-neutral-500 text-sm md:text-base max-w-lg">
             A curated selection of projects where strategy, creativity, and craftsmanship come together.
           </p>
         </motion.div>
@@ -122,7 +122,7 @@ export default function Projects() {
             <motion.div
               key={project.id}
               variants={item}
-              className="group bg-[#141414] hover:bg-[#1a1a1a] border border-white/5 rounded-2xl overflow-hidden transition-all duration-500"
+              className="group bg-white hover:bg-[#F4F4F5] border border-black/10 rounded-2xl overflow-hidden transition-all duration-500"
             >
               <div className="flex flex-col lg:flex-row">
                 <div className="relative w-full lg:w-[400px] h-[250px] lg:h-[300px] shrink-0 overflow-hidden">
@@ -139,20 +139,20 @@ export default function Projects() {
                 <div className="flex-1 p-6 md:p-8 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 border border-white/10 px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-neutral-400 border border-black/10 px-2 py-0.5 rounded-full">
                         {project.category}
                       </span>
-                      <span className="text-white/20 text-[10px] font-mono">0{i + 1}</span>
+                      <span className="text-neutral-300 text-[10px] font-mono">0{i + 1}</span>
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-primary transition-colors duration-500">
+                    <h3 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-3 group-hover:text-primary transition-colors duration-500">
                       {project.title}
                     </h3>
-                    <p className="text-white/50 text-sm md:text-base leading-relaxed mb-4">
+                    <p className="text-neutral-500 text-sm md:text-base leading-relaxed mb-4">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.features.map((feat) => (
-                        <span key={feat} className="text-[10px] text-white/40 border border-white/10 px-2 py-1 rounded-full">
+                        <span key={feat} className="text-[10px] text-neutral-400 border border-black/10 px-2 py-1 rounded-full">
                           {feat}
                         </span>
                       ))}
@@ -162,7 +162,7 @@ export default function Projects() {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/10 text-white font-medium hover:bg-white hover:text-black transition-all duration-500 text-sm self-start border border-white/5"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-black/10 text-neutral-900 font-medium hover:bg-black hover:text-white transition-all duration-500 text-sm self-start border border-black/10"
                     aria-label={`View ${project.title} project`}
                   >
                     View Live

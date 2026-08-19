@@ -71,7 +71,7 @@ function BlobButton() {
     >
       {/* Animated blob via border-radius */}
       <motion.div
-        className="absolute inset-0 bg-[#282828]"
+        className="absolute inset-0 bg-[#EDEDEF]"
         animate={{
           borderRadius: [
             "60% 40% 55% 45% / 55% 45% 60% 40%",
@@ -83,7 +83,7 @@ function BlobButton() {
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
       {/* Text content */}
-      <div className="relative z-10 flex flex-col items-center gap-1.5 text-white">
+      <div className="relative z-10 flex flex-col items-center gap-1.5 text-neutral-900">
         <ArrowUpRight size={16} className="opacity-70" />
         <span className="text-sm font-semibold tracking-wide">Let's Talk</span>
       </div>
@@ -94,7 +94,7 @@ function BlobButton() {
 /* ─── Marquee ────────────────────────────────────────────── */
 function Marquee() {
   return (
-    <div className="relative w-full overflow-hidden py-6 border-y border-white/10">
+    <div className="relative w-full overflow-hidden py-6 border-y border-black/10">
       <motion.div
         className="flex items-center gap-12 whitespace-nowrap w-max"
         animate={{ x: ["0%", "-33.333%"] }}
@@ -103,16 +103,16 @@ function Marquee() {
         {loopedPartners.map((partner, i) => (
           <div
             key={i}
-            className="flex items-center gap-2.5 text-white/60 hover:text-white transition-colors cursor-pointer shrink-0"
+            className="flex items-center gap-2.5 text-neutral-600 hover:text-neutral-900 transition-colors cursor-pointer shrink-0"
             data-testid={`partner-logo-${i}`}
           >
             {partner.isWordmark ? (
-              <span className="text-xl font-black tracking-tighter text-white/60">
+              <span className="text-xl font-black tracking-tighter text-neutral-600">
                 LO<span className="inline-block w-5 h-3 bg-white/60 rounded-sm mx-0.5 align-middle"></span>O
               </span>
             ) : (
               <>
-                <span className="text-white/50">{partner.icon}</span>
+                <span className="text-neutral-500">{partner.icon}</span>
                 <span className="text-base font-medium tracking-wide">{partner.name}</span>
               </>
             )}
@@ -143,7 +143,7 @@ function ScrollTopBtn() {
       }}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: visible ? 1 : 0.4, scale: 1 }}
-      className="fixed bottom-8 right-8 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-colors bg-black/60 backdrop-blur-sm z-50"
+      className="fixed bottom-8 right-8 w-10 h-10 rounded-full border border-black/20 flex items-center justify-center text-neutral-600 hover:text-neutral-900 hover:border-black/50 transition-colors bg-white/70 backdrop-blur-sm z-50"
       data-testid="button-scroll-top"
     >
       <ChevronUp size={18} />
@@ -156,16 +156,16 @@ export default function Partners() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
 
   return (
-    <div className="h-screen bg-black text-white flex flex-col relative overflow-hidden">
+    <div className="h-screen bg-white text-neutral-900 flex flex-col relative overflow-hidden">
       {/* Top bar */}
       <div className="flex items-center justify-between px-8 md:px-14 pt-6 pb-2 shrink-0">
         <motion.div
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-1.5 text-white/50 text-xs font-semibold tracking-[0.2em] uppercase"
+          className="flex items-center gap-1.5 text-neutral-500 text-xs font-semibold tracking-[0.2em] uppercase"
         >
-          <Link href="/" className="hover:text-white transition-colors" data-testid="link-our-partners">
+          <Link href="/" className="hover:text-neutral-900 transition-colors" data-testid="link-our-partners">
             Our Partners
           </Link>
           <ArrowUpRight size={13} />
@@ -179,7 +179,7 @@ export default function Partners() {
         >
           <Link
             href="/"
-            className="flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm font-semibold tracking-[0.15em] uppercase"
+            className="flex items-center gap-2 text-neutral-700 hover:text-neutral-900 transition-colors text-sm font-semibold tracking-[0.15em] uppercase"
             data-testid="link-menu"
           >
             Menu
@@ -228,7 +228,7 @@ export default function Partners() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-white/70 text-sm md:text-base leading-relaxed max-w-[220px]"
+          className="text-neutral-700 text-sm md:text-base leading-relaxed max-w-[220px]"
           data-testid="text-partners-tagline"
         >
           Empowering ambitious brands to define their presence with focus and precision.

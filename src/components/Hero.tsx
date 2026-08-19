@@ -8,7 +8,7 @@ import { useRef } from "react";
 function Sparkle({ className = "" }: { className?: string }) {
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" className={`shrink-0 ${className}`}>
-      <path d="M11 0 L12.5 9.5 L22 11 L12.5 12.5 L11 22 L9.5 12.5 L0 11 L9.5 9.5 Z" fill="white" />
+      <path d="M11 0 L12.5 9.5 L22 11 L12.5 12.5 L11 22 L9.5 12.5 L0 11 L9.5 9.5 Z" fill="currentColor" />
     </svg>
   );
 }
@@ -35,9 +35,9 @@ export function Hero() {
   const headlineOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={containerRef} className="relative pt-14 bg-[#0C0C0C] min-h-screen flex flex-col">
+    <section ref={containerRef} className="relative pt-14 bg-[#FAFAFA] min-h-screen flex flex-col">
       <div className="flex-1 px-3 sm:px-4 md:px-6 pt-3 sm:pt-4 pb-0">
-        <div className="relative rounded-2xl overflow-hidden w-full" style={{ background: "#1a1a1a", minHeight: "520px" }}>
+        <div className="relative rounded-2xl overflow-hidden w-full" style={{ background: "#FFFFFF", minHeight: "520px" }}>
           {/* Subtle noise texture */}
           <div className="absolute inset-0 pointer-events-none opacity-[0.08] z-[1]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundRepeat: "repeat", backgroundSize: "250px" }} />
 
@@ -51,30 +51,17 @@ export function Hero() {
             {/* Left column */}
             <div className="flex flex-col gap-4 md:gap-5 lg:w-[280px] shrink-0 w-full">
               <div className="flex flex-row items-start gap-4 md:flex-col md:gap-5">
-                {/* Portrait with border glow */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="hidden lg:block relative w-[200px] h-[200px] shrink-0"
-                >
-                  <div className="absolute inset-0 rounded-xl p-[1px]">
-                    <div className="w-full h-full rounded-xl bg-[#1a1a1a]" />
-                  </div>
-                  <Image src="/founder.webp" alt="Vijay Nadella — Founder & CEO of ClariSolve TECH" fill sizes="200px" className="object-cover object-top rounded-xl" priority />
-                </motion.div>
-
                 {/* Logo + text */}
                 <div className="flex flex-col gap-3 md:gap-4 flex-1 min-w-0">
                   <div className="flex items-center gap-2 md:gap-3">
                     <Image src="/logo.webp" alt="ClariSolve TECH Logo" width={40} height={40} className="h-8 md:h-10 w-auto object-contain shrink-0" />
-                    <span className="text-white font-bold tracking-tight text-sm md:text-xl truncate">ClariSolve <span className="text-white/60 font-medium">TECH</span></span>
+                    <span className="text-neutral-900 font-bold tracking-tight text-sm md:text-xl truncate">ClariSolve <span className="text-neutral-600 font-medium">TECH</span></span>
                   </div>
                   <div className="flex flex-col gap-2 md:gap-4">
-                    <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="text-white font-medium text-sm md:text-lg leading-tight">
+                    <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="text-neutral-900 font-medium text-sm md:text-lg leading-tight">
                       Technology solutions that help businesses grow.
                     </motion.p>
-                    <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} className="text-white/60 text-xs md:text-sm leading-relaxed">
+                    <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} className="text-neutral-600 text-xs md:text-sm leading-relaxed">
                       We help businesses build websites, develop software, automate processes, improve quality, and grow through technology — without the complexity.
                     </motion.p>
                   </div>
@@ -90,7 +77,7 @@ export function Hero() {
                 >
                   <Link
                     href="/start-project"
-                    className="hidden md:inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-[#ff4d00] hover:text-white transition-colors group"
+                    className="hidden md:inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-[#ff4d00] hover:text-neutral-900 transition-colors group"
                     aria-label="Start a project with us"
                   >
                     Start a project
@@ -99,21 +86,21 @@ export function Hero() {
                     </svg>
                   </Link>
                 </motion.div>
-                <div className="w-full h-px bg-white/10" />
+                <div className="w-full h-px bg-black/10" />
               </div>
             </div>
 
             {/* Right: Headline + socials + phone */}
             <div className="flex-1 flex flex-col justify-between h-full gap-4 md:gap-8">
               <motion.div style={{ y: headlineY, opacity: headlineOpacity }} className="flex-1 flex items-center">
-                <h1 className="text-[clamp(3.5rem,9vw,8rem)] font-bold leading-none tracking-tighter text-white flex flex-wrap gap-x-[0.2em]">
+                <h1 className="text-[clamp(3.5rem,9vw,8rem)] font-bold leading-none tracking-tighter text-neutral-900 flex flex-wrap gap-x-[0.2em]">
                   {words.map((word, i) => (
                     <span key={i} className="inline-block overflow-hidden pb-[0.1em] -mb-[0.1em]">
                       <motion.span
                         initial={{ y: "100%" }}
                         animate={{ y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                        className="inline-block bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent"
+                        className="inline-block bg-gradient-to-r from-neutral-900 via-neutral-900 to-neutral-600 bg-clip-text text-transparent"
                       >
                         {word}
                       </motion.span>
@@ -125,14 +112,14 @@ export function Hero() {
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="flex flex-wrap items-center gap-1.5 md:gap-2">
                   {socialLinks.map((s) => (
-                    <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 md:px-4 py-1 rounded-full border border-white/20 text-white/80 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all text-xs md:text-sm font-medium">
+                    <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-3 md:px-4 py-1 rounded-full border border-black/20 text-neutral-800 hover:text-neutral-900 hover:border-black/40 hover:bg-black/5 transition-all text-xs md:text-sm font-medium">
                       {s.label}
                       <span className="text-[10px] opacity-60">↑</span>
                     </a>
                   ))}
                 </motion.div>
 
-                <motion.a href="tel:+918500222838" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }} className="text-white/60 hover:text-white transition-colors text-sm font-mono tracking-widest whitespace-nowrap shrink-0">
+                <motion.a href="tel:+918500222838" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }} className="text-neutral-600 hover:text-neutral-900 transition-colors text-sm font-mono tracking-widest whitespace-nowrap shrink-0">
                   [ (+91) 85002 22838]
                 </motion.a>
               </div>
@@ -154,7 +141,7 @@ export function Hero() {
                 document.querySelector("#work")?.scrollIntoView({ behavior: "smooth" });
               }
             }}
-            className="hidden md:flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] uppercase text-white/30 hover:text-white/60 transition-colors"
+            className="hidden md:flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] uppercase text-neutral-400 hover:text-neutral-600 transition-colors"
             aria-label="Scroll to view our work"
           >
             Scroll

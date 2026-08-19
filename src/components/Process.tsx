@@ -43,9 +43,9 @@ const steps = [
 
 export function Process() {
   return (
-    <section className="py-12 md:py-32 bg-[#0C0C0C] px-4 md:px-8 relative overflow-hidden">
+    <section className="py-12 md:py-32 bg-[#FAFAFA] px-4 md:px-8 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
-        <div className="bg-[#141414] rounded-[40px] p-8 md:p-20">
+        <div className="bg-white rounded-[40px] p-8 md:p-20">
           {/* Header */}
           <div className="text-center mb-16 md:mb-24">
             <motion.span
@@ -53,14 +53,14 @@ export function Process() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-white/50 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-4 inline-block"
+              className="text-neutral-500 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-4 inline-block"
             >
               Our Process
             </motion.span>
-            <h2 className="text-[clamp(2.5rem,8vw,6rem)] font-bold text-white leading-[0.9] tracking-tighter mb-4">
+            <h2 className="text-[clamp(2.5rem,8vw,6rem)] font-bold text-neutral-900 leading-[0.9] tracking-tighter mb-4">
               <RevealWords text="The ClariSolve Framework." />
             </h2>
-            <p className="text-white/50 text-sm md:text-base max-w-lg mx-auto">
+            <p className="text-neutral-500 text-sm md:text-base max-w-lg mx-auto">
               <RevealWords text="A simple, signature framework we apply to every engagement." />
             </p>
           </div>
@@ -73,7 +73,7 @@ export function Process() {
                 className="relative flex gap-6 md:gap-10 pb-12 md:pb-16 last:pb-0 group"
               >
                 {index !== steps.length - 1 && (
-                  <div className="absolute left-5 md:left-6 top-14 md:top-16 bottom-0 w-[1px] bg-white/10" />
+                  <div className="absolute left-5 md:left-6 top-14 md:top-16 bottom-0 w-[1px] bg-black/10" />
                 )}
 
                 <div className="flex-none">
@@ -82,7 +82,7 @@ export function Process() {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 flex items-center justify-center text-sm md:text-base font-bold text-white/60 bg-[#0C0C0C] z-10 relative group-hover:border-[#ff4d00] group-hover:text-[#ff4d00] transition-colors duration-500"
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-black/20 flex items-center justify-center text-sm md:text-base font-bold text-neutral-600 bg-[#FAFAFA] z-10 relative group-hover:border-[#ff4d00] group-hover:text-[#ff4d00] transition-colors duration-500"
                   >
                     {step.num}
                   </motion.div>
@@ -94,7 +94,7 @@ export function Process() {
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.08 + 0.05, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-[#ff4d00] transition-colors duration-500"
+                    className="text-xl md:text-2xl font-bold text-neutral-900 mb-2 group-hover:text-[#ff4d00] transition-colors duration-500"
                   >
                     {step.title}
                   </motion.h3>
@@ -103,7 +103,7 @@ export function Process() {
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.08 + 0.1, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-white/50 text-sm md:text-base leading-relaxed"
+                    className="text-neutral-500 text-sm md:text-base leading-relaxed"
                   >
                     <RevealWords text={step.desc} />
                   </motion.p>

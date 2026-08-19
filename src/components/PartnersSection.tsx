@@ -73,7 +73,7 @@ function BlobButton() {
         aria-label="Start a project with us"
       >
         <motion.div
-          className="absolute inset-0 bg-[#1a1a1a] border border-white/5"
+          className="absolute inset-0 bg-[#F4F4F5] border border-black/10"
           animate={{
             borderRadius: [
               "60% 40% 55% 45% / 55% 45% 60% 40%",
@@ -84,7 +84,7 @@ function BlobButton() {
           }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative z-10 flex flex-col items-center gap-1.5 text-white">
+        <div className="relative z-10 flex flex-col items-center gap-1.5 text-neutral-900">
           <ArrowUpRight size={16} className="opacity-70" />
           <span className="text-sm font-semibold tracking-wide">Let's Talk</span>
         </div>
@@ -96,7 +96,7 @@ function BlobButton() {
 /* ─── Marquee ────────────────────────────────────────────── */
 function Marquee() {
   return (
-    <div className="relative w-full overflow-hidden py-10 border-y border-white/5">
+    <div className="relative w-full overflow-hidden py-10 border-y border-black/10">
       <motion.div
         className="flex items-center gap-16 whitespace-nowrap w-max"
         animate={{ x: ["0%", "-33.333%"] }}
@@ -105,7 +105,7 @@ function Marquee() {
         {loopedPartners.map((partner, i) => (
           <div
             key={i}
-            className="flex items-center gap-3 text-white/40 hover:text-white transition-colors cursor-pointer shrink-0"
+            className="flex items-center gap-3 text-neutral-400 hover:text-neutral-900 transition-colors cursor-pointer shrink-0"
           >
             {partner.isWordmark ? (
               <span className="text-2xl font-black tracking-tighter">
@@ -156,15 +156,15 @@ export function PartnersSection() {
   });
 
   return (
-    <section ref={containerRef} className="bg-[#0C0C0C] py-12 md:py-24 relative overflow-hidden">
+    <section ref={containerRef} className="bg-[#FAFAFA] py-12 md:py-24 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-8 md:px-14">
         {/* Top Label */}
-        <Link href="/partners" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-8 transition-colors" aria-label="View our partners">
+        <Link href="/partners" className="inline-flex items-center gap-2 text-neutral-500 hover:text-neutral-900 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-8 transition-colors" aria-label="View our partners">
           <span>Our Partners</span>
         </Link>
 
         {/* Headline with Scroll-based Word-by-word Reveal */}
-        <h2 className="text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.1] tracking-tight max-w-[850px] text-white mb-16 flex flex-wrap gap-x-[0.25em]">
+        <h2 className="text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.1] tracking-tight max-w-[850px] text-neutral-900 mb-16 flex flex-wrap gap-x-[0.25em]">
           {words.map((word, i) => (
             <AnimatedWord key={i} word={word} index={i} total={words.length} scrollYProgress={scrollYProgress} />
           ))}
@@ -177,7 +177,7 @@ export function PartnersSection() {
       {/* Bottom Section */}
       <div className="max-w-[1400px] mx-auto px-8 md:px-14 mt-16 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20">
         <BlobButton />
-        <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-[280px] text-center md:text-left">
+        <p className="text-neutral-600 text-sm md:text-base leading-relaxed max-w-[280px] text-center md:text-left">
           Empowering ambitious brands to define their presence with focus and precision.
         </p>
       </div>

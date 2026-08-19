@@ -25,7 +25,7 @@ function NetworkImage({ src, index, total, scrollYProgress }: { src: string; ind
 
   return (
     <motion.div
-      className="absolute rounded-full overflow-hidden border-[4px] border-[#0C0C0C] shadow-2xl transition-transform duration-500 hover:scale-110 hover:z-50 cursor-pointer group"
+      className="absolute rounded-full overflow-hidden border-[4px] border-white shadow-2xl transition-transform duration-500 hover:scale-110 hover:z-50 cursor-pointer group"
       style={{
         width: "140px",
         height: "140px",
@@ -79,7 +79,7 @@ export function NetworkShowcase() {
   const words = headline.split(" ");
 
   return (
-    <section ref={containerRef} className="relative w-full bg-[#0C0C0C] py-12 md:py-24 flex flex-col items-center justify-center overflow-hidden">
+    <section ref={containerRef} className="relative w-full bg-[#FAFAFA] py-12 md:py-24 flex flex-col items-center justify-center overflow-hidden">
       <div className="relative flex items-center justify-center h-[220px] w-full max-w-4xl mx-auto mb-12">
         {isMobile ? (
           networkImages.map((src, i) => {
@@ -89,7 +89,7 @@ export function NetworkShowcase() {
             return (
               <div
                 key={`mobile-${i}`}
-                className="absolute rounded-full overflow-hidden border-[3px] border-[#0C0C0C] shadow-lg"
+                className="absolute rounded-full overflow-hidden border-[3px] border-white shadow-lg"
                 style={{
                   width: "80px",
                   height: "80px",
@@ -111,7 +111,7 @@ export function NetworkShowcase() {
       </div>
 
       <div className="relative z-10 text-center max-w-4xl px-6 flex flex-col items-center">
-        <h2 className="text-[clamp(2rem,6vw,4.5rem)] font-bold text-white leading-[1.1] tracking-tight mb-12 max-w-[900px] flex flex-wrap justify-center gap-x-[0.25em]">
+        <h2 className="text-[clamp(2rem,6vw,4.5rem)] font-bold text-neutral-900 leading-[1.1] tracking-tight mb-12 max-w-[900px] flex flex-wrap justify-center gap-x-[0.25em]">
           {words.map((word, i) => (
             <AnimatedWord key={i} word={word} index={i} total={words.length} scrollYProgress={scrollYProgress} />
           ))}
@@ -126,14 +126,14 @@ export function NetworkShowcase() {
         >
           <Link
             href="/start-project"
-            className="px-10 py-5 rounded-full bg-[#1a1a1a] text-white font-medium hover:bg-white hover:text-black transition-all duration-500 text-lg inline-block"
+            className="px-10 py-5 rounded-full bg-[#F4F4F5] text-neutral-900 font-medium hover:bg-black hover:text-white transition-all duration-500 text-lg inline-block"
             aria-label="Get in touch with us"
           >
             Get In Touch
           </Link>
           <Link
             href="/start-project"
-            className="w-16 h-16 rounded-full bg-[#1a1a1a] text-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-500"
+            className="w-16 h-16 rounded-full bg-[#F4F4F5] text-neutral-900 flex items-center justify-center hover:bg-black hover:text-white transition-all duration-500"
             aria-label="Start a project"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
